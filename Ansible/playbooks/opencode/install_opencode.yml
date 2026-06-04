@@ -1,0 +1,11 @@
+---
+- name: Install OpenCode AI locally
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  vars:
+    opencode_state: present
+
+  roles:
+    - role: opencode

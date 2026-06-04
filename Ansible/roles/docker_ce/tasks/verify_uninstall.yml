@@ -1,0 +1,69 @@
+---
+- name: Verify Docker binary removal
+  ansible.builtin.stat:
+    path: /usr/bin/docker
+  register: docker_binary_check
+
+- name: Verify Dockerd binary removal
+  ansible.builtin.stat:
+    path: /usr/bin/dockerd
+  register: dockerd_binary_check
+
+- name: Verify containerd binary removal
+  ansible.builtin.stat:
+    path: /usr/bin/containerd
+  register: containerd_binary_check
+
+- name: Verify Docker Compose plugin removal
+  ansible.builtin.stat:
+    path: "{{ item }}"
+  loop:
+    - /usr/libexec/docker/cli-plugins/docker-compose
+    - /usr/local/lib/docker/cli-plugins/docker-compose
+  register: docker_compose_plugin_checks
+
+- name: Verify Docker Buildx plugin removal
+  ansible.builtin.stat:
+    path: "{{ item }}"
+  loop:
+    - /usr/libexec/docker/cli-plugins/docker-buildx
+    - /usr/local/lib/docker/cli-plugins/docker-buildx
+  register: docker_buildx_plugin_checks
+
+- name: Verify Docker service state
+  ansible.builtin.command:
+    cmd: systemctl is-active {{ docker_service_name }}
+  register: docker_service_check
+  changed_when: false
+  failed_when: false
+
+- name: Verify Docker service enablement
+  ansible.builtin.command:
+    cmd: systemctl is-enabled {{ docker_service_name }}
+  register: docker_service_enabled_check
+  changed_when: false
+  failed_when: false
+
+- name: Assert Docker uninstall completed
+  ansible.builtin.assert:
+    that:
+      - not docker_binary_check.stat.exists
+      - not dockerd_binary_check.stat.exists
+      - not containerd_binary_check.stat.exists
+      - docker_service_check.stdout != "active"
+      - docker_service_enabled_check.stdout != "enabled"
+      - docker_compose_plugin_checks.results | map(attribute='stat.exists') | select('equalto', true) | list | length == 0
+      - docker_buildx_plugin_checks.results | map(attribute='stat.exists') | select('equalto', true) | list | length == 0
+    fail_msg: "Docker uninstall verification failed"
+    success_msg: "Docker uninstall completed successfully"
+
+- name: Display Docker uninstall verification summary
+  ansible.builtin.debug:
+    msg:
+      - "Docker binary removed         : {{ not docker_binary_check.stat.exists }}"
+      - "Dockerd binary removed        : {{ not dockerd_binary_check.stat.exists }}"
+      - "Containerd binary removed     : {{ not containerd_binary_check.stat.exists }}"
+      - "Docker service state          : {{ docker_service_check.stdout | default('not-found') }}"
+      - "Docker service enabled        : {{ docker_service_enabled_check.stdout | default('not-found') }}"
+      - "Docker Compose plugin removed : {{ docker_compose_plugin_checks.results | map(attribute='stat.exists') | select('equalto', true) | list | length == 0 }}"
+      - "Docker Buildx plugin removed  : {{ docker_buildx_plugin_checks.results | map(attribute='stat.exists') | select('equalto', true) | list | length == 0 }}"
