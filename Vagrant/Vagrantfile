@@ -1,0 +1,190 @@
+# ==========================================================
+# Global configuration
+# ==========================================================
+VM_COUNT = 1
+
+VM_BOX = "bento/ubuntu-26.04"
+
+VM_PREFIX   = "homeVM"
+HOST_PREFIX = "hsrv"
+
+VM_MEMORY = 2048
+VM_CPUS   = 2
+
+USER_NAME = "sakura"
+
+BASE_IP            = "192.168.56."
+BASE_IP_LAST_OCTET = 10
+
+HOST_ONLY_ADAPTER = "vboxnet0"
+
+SSH_KEY_DIR    = File.expand_path("~/.ssh")
+SSH_KEY_PREFIX = "home_srv"
+
+# ==========================================================
+# Validate SSH keys
+# ==========================================================
+(1..VM_COUNT).each do |i|
+  pubkey = File.join(SSH_KEY_DIR, "#{SSH_KEY_PREFIX}#{i}.pub")
+
+  unless File.exist?(pubkey)
+    raise "Missing SSH public key: #{pubkey}"
+  end
+end
+
+# ==========================================================
+# Generate VM definitions
+# ==========================================================
+VMS = {}
+
+(1..VM_COUNT).each do |i|
+  VMS["#{VM_PREFIX}#{i}"] = {
+    hostname: "#{HOST_PREFIX}#{i}",
+    ip: "#{BASE_IP}#{BASE_IP_LAST_OCTET + i}",
+    user: USER_NAME,
+    pubkey: File.join(
+      SSH_KEY_DIR,
+      "#{SSH_KEY_PREFIX}#{i}.pub"
+    )
+  }
+end
+
+# ==========================================================
+# Main
+# ==========================================================
+Vagrant.configure("2") do |config|
+
+  # Disable the default /vagrant shared folder
+  # Use SSH, SCP, rsync and Git instead.
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # We manage SSH keys ourselves
+  config.ssh.insert_key = false
+
+  VMS.each do |vm_name, vm|
+
+    config.vm.define vm_name do |machine|
+
+      machine.vm.box = VM_BOX
+      machine.vm.hostname = vm[:hostname]
+
+      # Adapter 1 = NAT (default)
+
+      # Adapter 2 = Host-only
+      machine.vm.network "private_network",
+                         ip: vm[:ip],
+                         virtualbox__hostonly: HOST_ONLY_ADAPTER
+
+      machine.vm.provider "virtualbox" do |vb|
+
+        vb.name   = vm_name
+        vb.memory = VM_MEMORY
+        vb.cpus   = VM_CPUS
+
+        # Run VM headless (no VirtualBox console window)
+        vb.gui = false
+
+        # Graphics
+        vb.customize ["modifyvm", :id,
+                      "--graphicscontroller", "vboxsvga"]
+
+        vb.customize ["modifyvm", :id,
+                      "--vram", "16"]
+
+        vb.customize ["modifyvm", :id,
+                      "--accelerate3d", "off"]
+
+        # Adapter 2
+        vb.customize ["modifyvm", :id,
+                      "--nic2", "hostonly"]
+
+        vb.customize ["modifyvm", :id,
+                      "--hostonlyadapter2", HOST_ONLY_ADAPTER]
+
+        # Intel PRO/1000 MT Desktop
+        vb.customize ["modifyvm", :id,
+                      "--nictype2", "82540EM"]
+
+        # Promiscuous Mode = Deny
+        vb.customize ["modifyvm", :id,
+                      "--nicpromisc2", "deny"]
+
+      end
+
+      machine.vm.provision "shell", privileged: true, inline: <<-SHELL
+
+        # Exit on error, print commands and variables
+        set -eux
+
+        # Non-interactive apt
+        export DEBIAN_FRONTEND=noninteractive
+        export NEEDRESTART_MODE=a
+
+        # Update package lists
+        apt-get update
+        apt-get upgrade -y
+
+        # Install required packages
+        apt-get \
+          -o Dpkg::Use-Pty=0 \
+          -y \
+          install \
+          openssh-server \
+          rsync \
+          git \
+          htop \
+          avahi-daemon \
+          net-tools \
+          iputils-ping \
+          dnsutils \
+          curl \
+          wget \
+          nano \
+          vim \
+          tree
+
+        # Enable Avahi
+        systemctl enable avahi-daemon
+
+        # Create user
+        if ! id #{vm[:user]} >/dev/null 2>&1; then
+          useradd -m -s /bin/bash #{vm[:user]}
+          usermod -aG sudo #{vm[:user]}
+        fi
+
+        # Create SSH directory
+        install -d \
+          -m 700 \
+          -o #{vm[:user]} \
+          -g #{vm[:user]} \
+          /home/#{vm[:user]}/.ssh
+
+        # Install authorized_keys
+        cat > /home/#{vm[:user]}/.ssh/authorized_keys <<EOF
+#{File.read(vm[:pubkey])}
+EOF
+
+        chown #{vm[:user]}:#{vm[:user]} \
+          /home/#{vm[:user]}/.ssh/authorized_keys
+
+        chmod 600 \
+          /home/#{vm[:user]}/.ssh/authorized_keys
+
+        # SSH hardening
+        mkdir -p /etc/ssh/sshd_config.d
+
+        cat > /etc/ssh/sshd_config.d/99-hardening.conf <<EOF
+PasswordAuthentication no
+PermitRootLogin no
+PubkeyAuthentication yes
+EOF
+
+        systemctl restart ssh
+
+      SHELL
+
+    end
+
+  end
+
+end

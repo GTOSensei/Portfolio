@@ -1,0 +1,22 @@
+# Vagrant
+.vagrant/
+
+# Vagrant logs
+*.log
+
+# VirtualBox
+*.vbox
+*.vbox-prev
+
+# Editors
+.vscode/
+.idea/
+
+# Linux
+*.swp
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
