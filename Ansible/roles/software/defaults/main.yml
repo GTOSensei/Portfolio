@@ -1,6 +1,0 @@
----
-opencode_install_url: "https://opencode.ai/install"
-
-system_opencode_symlink: "/usr/local/bin/opencode"
-
-root_opencode_dir: "/root/.opencode"

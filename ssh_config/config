@@ -34,7 +34,7 @@ Host hsrv3
 #Host github
 #    HostName github.com
 #    User git
-#    IdentityFile ~/.ssh/github
+#    IdentityFile ~/.ssh/work_github
 #    IdentitiesOnly yes
 #    PubkeyAuthentication yes
 
