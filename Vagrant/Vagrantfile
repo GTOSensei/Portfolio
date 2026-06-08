@@ -11,7 +11,7 @@ HOST_PREFIX = "hsrv"
 VM_MEMORY = 2048
 VM_CPUS   = 2
 
-INSTALL_DOCKER = true
+INSTALL_DOCKER = false # true
 
 USER_NAME = "sakura"
 
@@ -144,10 +144,11 @@ Vagrant.configure("2") do |config|
           nano \
           vim \
           tree \
-          ca-certificates
+          ca-certificates \
+          bash-completion
 
         # Enable Avahi
-        systemctl enable avahi-daemon
+        systemctl enable --now avahi-daemon
 
         # Create user if it does not exist
         if ! id #{vm[:user]} >/dev/null 2>&1; then
@@ -160,6 +161,19 @@ Vagrant.configure("2") do |config|
         # Verify user is in sudo group
         if ! id -nG #{vm[:user]} | grep -qw sudo; then
           echo "User #{vm[:user]} is not in sudo group"
+          exit 1
+        fi
+
+        # Passwordless sudo
+        cat >/etc/sudoers.d/#{vm[:user]} <<EOF
+#{vm[:user]} ALL=(ALL:ALL) NOPASSWD:ALL
+EOF
+
+        chmod 440 /etc/sudoers.d/#{vm[:user]}
+
+        # Verify Passwordless sudo
+        if ! sudo -u #{vm[:user]} sudo -n true 2>/dev/null; then
+          echo "Passwordless sudo is not working"
           exit 1
         fi
 
@@ -188,9 +202,11 @@ EOF
 PasswordAuthentication no
 PermitRootLogin no
 PubkeyAuthentication yes
-ChallengeResponseAuthentication no
+KbdInteractiveAuthentication no
+PermitEmptyPasswords no
 UsePAM yes
 X11Forwarding no
+MaxAuthTries 3
 EOF
 
         systemctl restart ssh
