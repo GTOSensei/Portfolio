@@ -1,0 +1,40 @@
+#Home Laptop
+
+Host github
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github
+    IdentitiesOnly yes
+    PubkeyAuthentication yes
+
+Host work
+    HostName work.local
+    User sakura
+    IdentityFile ~/.ssh/work
+
+Host hsrv1
+    HostName 192.168.56.11
+    User sakura
+    IdentityFile ~/.ssh/home_srv1
+
+Host hsrv2
+    HostName 192.168.56.12
+    User sakura
+    IdentityFile ~/.ssh/home_srv2
+
+Host hsrv3
+    HostName 192.168.56.13
+    User sakura
+    IdentityFile ~/.ssh/home_srv3
+
+
+
+#Work Laptop
+
+#Host github
+#    HostName github.com
+#    User git
+#    IdentityFile ~/.ssh/work_github
+#    IdentitiesOnly yes
+#    PubkeyAuthentication yes
+

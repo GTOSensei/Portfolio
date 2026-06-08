@@ -1,0 +1,24 @@
+---
+- name: Install and verify Docker
+  when:
+    - docker_state == "present"
+  block:
+    - name: Include Docker install tasks
+      ansible.builtin.include_tasks:
+        file: install.yml
+
+    - name: Include Docker verification tasks
+      ansible.builtin.include_tasks:
+        file: verify.yml
+
+- name: Uninstall and verify Docker removal
+  when:
+    - docker_state == "absent"
+  block:
+    - name: Include Docker uninstall tasks
+      ansible.builtin.include_tasks:
+        file: uninstall.yml
+
+    - name: Include Docker uninstall verification tasks
+      ansible.builtin.include_tasks:
+        file: verify_uninstall.yml

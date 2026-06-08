@@ -1,0 +1,11 @@
+---
+- name: Install Docker
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars:
+    docker_state: present
+
+  roles:
+    - role: docker_ce

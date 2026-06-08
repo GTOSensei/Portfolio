@@ -1,0 +1,102 @@
+---
+docker_state: present
+
+docker_install_method: official
+
+docker_edition: ce
+
+docker_version: ""
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+  - docker-ce-rootless-extras
+
+docker_package_state: present
+
+docker_repo_gpg_url: "https://download.docker.com/linux"
+
+docker_daemon_config_path: "/etc/docker/daemon.json"
+
+docker_arch_map:
+  x86_64: amd64
+  aarch64: arm64
+  armv7l: armhf
+
+docker_old_packages_debian:
+  - docker.io
+  - docker-doc
+  - docker-compose
+  - docker-compose-v2
+  - podman-docker
+  - containerd
+  - runc
+
+docker_old_packages_redhat:
+  - docker
+  - docker-client
+  - docker-client-latest
+  - docker-common
+  - docker-latest
+  - docker-latest-logrotate
+  - docker-logrotate
+  - docker-engine
+
+docker_prerequisites_debian:
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release
+
+docker_prerequisites_redhat:
+  - yum-utils
+  - device-mapper-persistent-data
+  - lvm2
+  - ca-certificates
+  - curl
+
+docker_binaries:
+  - /usr/bin/docker
+  - /usr/local/bin/docker
+  - /usr/bin/dockerd
+  - /usr/local/bin/dockerd
+  - /usr/bin/containerd
+  - /usr/local/bin/containerd
+  - /usr/bin/runc
+  - /usr/local/bin/runc
+
+docker_service_name: docker
+
+docker_manage_users: false
+docker_users: []
+
+docker_enable_service: true
+
+docker_start_service: true
+
+docker_validate_certs: true
+
+docker_manage_daemon_json: true
+
+docker_remove_data: false
+
+docker_remove_repository: true
+
+docker_remove_gpg_keys: true
+
+docker_data_root: "/var/lib/docker"
+
+docker_containerd_root: "/var/lib/containerd"
+
+docker_daemon_log_driver: "json-file"
+
+docker_daemon_log_max_size: "100m"
+
+docker_daemon_log_max_file: "3"
+
+docker_daemon_storage_driver: "overlay2"
+
+docker_daemon_live_restore: true

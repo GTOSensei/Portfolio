@@ -1,0 +1,304 @@
+# ==========================================================
+# Global configuration
+# ==========================================================
+VM_COUNT = 1
+
+VM_BOX = "bento/ubuntu-26.04"
+
+VM_PREFIX   = "homeVM"
+HOST_PREFIX = "hsrv"
+
+VM_MEMORY = 2048
+VM_CPUS   = 2
+
+INSTALL_DOCKER = false # true
+
+USER_NAME = "sakura"
+
+BASE_IP            = "192.168.56."
+BASE_IP_LAST_OCTET = 10
+
+HOST_ONLY_ADAPTER = "vboxnet0"
+
+SSH_KEY_DIR    = File.expand_path("~/.ssh")
+SSH_KEY_PREFIX = "home_srv"
+
+# ==========================================================
+# Validate SSH keys
+# ==========================================================
+(1..VM_COUNT).each do |i|
+  pubkey = File.join(SSH_KEY_DIR, "#{SSH_KEY_PREFIX}#{i}.pub")
+
+  unless File.exist?(pubkey)
+    raise "Missing SSH public key: #{pubkey}"
+  end
+end
+
+# ==========================================================
+# Generate VM definitions
+# ==========================================================
+VMS = {}
+
+(1..VM_COUNT).each do |i|
+  VMS["#{VM_PREFIX}#{i}"] = {
+    hostname: "#{HOST_PREFIX}#{i}",
+    ip: "#{BASE_IP}#{BASE_IP_LAST_OCTET + i}",
+    user: USER_NAME,
+    pubkey: File.join(
+      SSH_KEY_DIR,
+      "#{SSH_KEY_PREFIX}#{i}.pub"
+    )
+  }
+end
+
+# ==========================================================
+# Main
+# ==========================================================
+Vagrant.configure("2") do |config|
+
+  # Disable the default /vagrant shared folder
+  # Use SSH, SCP, rsync and Git instead.
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # We manage SSH keys ourselves
+  config.ssh.insert_key = false
+
+  VMS.each do |vm_name, vm|
+
+    config.vm.define vm_name do |machine|
+
+      machine.vm.box = VM_BOX
+      machine.vm.hostname = vm[:hostname]
+
+      # Adapter 1 = NAT (default)
+
+      # Adapter 2 = Host-only
+      machine.vm.network "private_network",
+                         ip: vm[:ip],
+                         virtualbox__hostonly: HOST_ONLY_ADAPTER
+
+      machine.vm.provider "virtualbox" do |vb|
+
+        vb.name   = vm_name
+        vb.memory = VM_MEMORY
+        vb.cpus   = VM_CPUS
+
+        # Run VM headless (no VirtualBox console window)
+        vb.gui = false
+
+        # Graphics
+        vb.customize ["modifyvm", :id,
+                      "--graphicscontroller", "vboxsvga"]
+
+        vb.customize ["modifyvm", :id,
+                      "--vram", "16"]
+
+        vb.customize ["modifyvm", :id,
+                      "--accelerate3d", "off"]
+
+        # Adapter 2
+        vb.customize ["modifyvm", :id,
+                      "--nic2", "hostonly"]
+
+        vb.customize ["modifyvm", :id,
+                      "--hostonlyadapter2", HOST_ONLY_ADAPTER]
+
+        # Intel PRO/1000 MT Desktop
+        vb.customize ["modifyvm", :id,
+                      "--nictype2", "82540EM"]
+
+        # Promiscuous Mode = Deny
+        vb.customize ["modifyvm", :id,
+                      "--nicpromisc2", "deny"]
+
+      end
+
+      machine.vm.provision "shell", privileged: true, inline: <<-SHELL
+
+        # Exit on error, print commands and variables
+        set -eux
+
+        # Non-interactive apt
+        export DEBIAN_FRONTEND=noninteractive
+        export NEEDRESTART_MODE=a
+
+        # Update package lists
+        apt-get update
+        apt-get upgrade -y
+
+        # Install required packages
+        apt-get \
+          -o Dpkg::Use-Pty=0 \
+          -y \
+          install \
+          openssh-server \
+          rsync \
+          git \
+          htop \
+          avahi-daemon \
+          net-tools \
+          iputils-ping \
+          dnsutils \
+          curl \
+          wget \
+          nano \
+          vim \
+          tree \
+          ca-certificates \
+          bash-completion
+
+        # Enable Avahi
+        systemctl enable --now avahi-daemon
+
+        # Create user if it does not exist
+        if ! id #{vm[:user]} >/dev/null 2>&1; then
+          useradd -m -s /bin/bash #{vm[:user]}
+        fi
+
+        # Ensure user is a sudoer
+        usermod -aG sudo #{vm[:user]}
+
+        # Verify user is in sudo group
+        if ! id -nG #{vm[:user]} | grep -qw sudo; then
+          echo "User #{vm[:user]} is not in sudo group"
+          exit 1
+        fi
+
+        # Passwordless sudo
+        cat >/etc/sudoers.d/#{vm[:user]} <<EOF
+#{vm[:user]} ALL=(ALL:ALL) NOPASSWD:ALL
+EOF
+
+        chmod 440 /etc/sudoers.d/#{vm[:user]}
+
+        # Verify Passwordless sudo
+        if ! sudo -u #{vm[:user]} sudo -n true 2>/dev/null; then
+          echo "Passwordless sudo is not working"
+          exit 1
+        fi
+
+        # Create SSH directory
+        install -d \
+          -m 700 \
+          -o #{vm[:user]} \
+          -g #{vm[:user]} \
+          /home/#{vm[:user]}/.ssh
+
+        # Install authorized_keys
+        cat > /home/#{vm[:user]}/.ssh/authorized_keys <<EOF
+#{File.read(vm[:pubkey])}
+EOF
+
+        chown #{vm[:user]}:#{vm[:user]} \
+          /home/#{vm[:user]}/.ssh/authorized_keys
+
+        chmod 600 \
+          /home/#{vm[:user]}/.ssh/authorized_keys
+
+        # SSH hardening
+        mkdir -p /etc/ssh/sshd_config.d
+
+        cat > /etc/ssh/sshd_config.d/99-hardening.conf <<EOF
+PasswordAuthentication no
+PermitRootLogin no
+PubkeyAuthentication yes
+KbdInteractiveAuthentication no
+PermitEmptyPasswords no
+UsePAM yes
+X11Forwarding no
+MaxAuthTries 3
+EOF
+
+        systemctl restart ssh
+
+        SHELL
+
+# ==========================================================
+# Install Docker
+# ==========================================================
+
+        if INSTALL_DOCKER
+          machine.vm.provision "shell", privileged: true, inline: <<-SHELL
+
+          # Exit on error, print commands and variables
+          set -eux
+
+          # Non-interactive apt
+
+          export DEBIAN_FRONTEND=noninteractive
+          export NEEDRESTART_MODE=a
+
+          # Create keyring directory
+          install -m 0755 -d /etc/apt/keyrings
+
+          # Docker GPG key
+          curl -fsSL \
+            https://download.docker.com/linux/ubuntu/gpg \
+            -o /etc/apt/keyrings/docker.asc
+
+          chmod a+r /etc/apt/keyrings/docker.asc
+
+          # Docker repository
+          cat >/etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+          apt-get update
+
+          # Install Docker
+          apt-get \
+            -o Dpkg::Use-Pty=0 \
+            -y \
+            install \
+            docker-ce \
+            docker-ce-cli \
+            containerd.io \
+            docker-buildx-plugin \
+            docker-compose-plugin 
+
+          # Enable and Start Docker service
+          systemctl enable --now docker
+
+          # Verify Daemon responds
+          docker info --format '{{.ServerVersion}}'
+
+          # Ensure user is in docker group
+          usermod -aG docker #{vm[:user]}
+
+          # Verify user is in docker group
+          if ! id -nG #{vm[:user]} | grep -qw docker; then
+            echo "User #{vm[:user]} is not in docker group"
+            exit 1
+          fi
+
+          # Verify Docker installation
+          docker version
+          docker buildx version
+          docker compose version
+
+          # Verify Docker service is active
+          if ! systemctl is-active --quiet docker; then
+            echo "Docker service is not active"
+            exit 1
+          fi
+
+          # Verify Docker service is enabled
+          if ! systemctl is-enabled --quiet docker; then
+            echo "Docker service is not enabled"
+            exit 1
+          fi
+
+        SHELL
+
+        end # if INSTALL_DOCKER
+
+    end # config.vm.define
+
+  end # VMS.each
+
+end # Vagrant.configure

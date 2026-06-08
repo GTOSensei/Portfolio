@@ -1,0 +1,74 @@
+---
+- name: Remove old Docker packages
+  ansible.builtin.package:
+    name: "{{ docker_old_packages_redhat }}"
+    state: absent
+
+- name: Install Docker prerequisites
+  ansible.builtin.package:
+    name: "{{ docker_prerequisites_redhat }}"
+    state: present
+
+- name: Add Docker official repository
+  ansible.builtin.yum_repository:
+    name: docker-ce
+    description: Docker CE Stable Repository
+    baseurl: >-
+      https://download.docker.com/linux/centos/
+      $releasever/$basearch/stable
+    enabled: true
+    gpgcheck: true
+    repo_gpgcheck: true
+    gpgkey: "{{ docker_repo_gpg_url }}/centos/gpg"
+    state: present
+
+- name: Install Docker CE packages
+  ansible.builtin.package:
+    name: >-
+      {{
+        docker_packages
+        | map(
+            'regex_replace',
+            '$',
+            '-' + docker_version if docker_version else ''
+          )
+        | list
+      }}
+    state: "{{ docker_package_state }}"
+
+- name: Deploy Docker daemon configuration
+  ansible.builtin.template:
+    src: daemon.json.j2
+    dest: "{{ docker_daemon_config_path }}"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart Docker
+  when:
+    - docker_manage_daemon_json | default(true)
+
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
+
+- name: Ensure Docker service is enabled
+  ansible.builtin.service:
+    name: "{{ docker_service_name }}"
+    enabled: "{{ docker_enable_service }}"
+
+- name: Ensure Docker service is started
+  ansible.builtin.service:
+    name: "{{ docker_service_name }}"
+    state: started
+  when:
+    - docker_start_service
+
+- name: Add users to docker group
+  ansible.builtin.user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  loop: "{{ docker_users }}"
+  loop_control:
+    label: "{{ item }}"
+  when:
+    - docker_manage_users

@@ -1,0 +1,11 @@
+---
+- name: Uninstall OpenCode AI locally
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  vars:
+    opencode_state: absent
+
+  roles:
+    - role: opencode

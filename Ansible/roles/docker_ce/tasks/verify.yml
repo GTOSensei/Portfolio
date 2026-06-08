@@ -1,0 +1,57 @@
+---
+- name: Verify Docker version
+  ansible.builtin.command:
+    cmd: docker version
+  register: docker_version_check
+  changed_when: false
+
+- name: Verify Docker info
+  ansible.builtin.command:
+    cmd: docker info
+  register: docker_info_check
+  changed_when: false
+
+- name: Verify Docker Compose plugin
+  ansible.builtin.command:
+    cmd: docker compose version
+  register: docker_compose_check
+  changed_when: false
+
+- name: Verify Docker Buildx plugin
+  ansible.builtin.command:
+    cmd: docker buildx version
+  register: docker_buildx_check
+  changed_when: false
+
+- name: Verify Docker service is active
+  ansible.builtin.command:
+    cmd: systemctl is-active {{ docker_service_name }}
+  register: docker_service_active_check
+  changed_when: false
+
+- name: Verify Docker service is enabled
+  ansible.builtin.command:
+    cmd: systemctl is-enabled {{ docker_service_name }}
+  register: docker_service_enabled_check
+  changed_when: false
+
+- name: Assert Docker daemon is healthy
+  ansible.builtin.assert:
+    that:
+      - docker_version_check.rc == 0
+      - docker_info_check.rc == 0
+      - docker_compose_check.rc == 0
+      - docker_buildx_check.rc == 0
+      - docker_service_active_check.stdout == "active"
+      - docker_service_enabled_check.stdout == "enabled"
+    fail_msg: "Docker verification failed"
+    success_msg: "Docker verification completed successfully"
+
+- name: Show Docker verification summary
+  ansible.builtin.debug:
+    msg:
+      - "Docker Engine Version      : {{ docker_version_check.stdout_lines | select('search', '^ Version:') | first | regex_replace('^\\s*Version:\\s*', '') }}"
+      - "Docker Compose Version     : {{ docker_compose_check.stdout | regex_replace('Docker Compose version ', '') }}"
+      - "Docker Buildx Version      : {{ docker_buildx_check.stdout }}"
+      - "Docker Service Active      : {{ docker_service_active_check.stdout }}"
+      - "Docker Service Enabled     : {{ docker_service_enabled_check.stdout }}"

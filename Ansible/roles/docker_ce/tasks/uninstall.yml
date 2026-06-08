@@ -1,0 +1,115 @@
+---
+- name: Stop Docker service
+  ansible.builtin.service:
+    name: "{{ docker_service_name }}"
+    state: stopped
+  failed_when: false
+
+- name: Disable Docker service
+  ansible.builtin.service:
+    name: "{{ docker_service_name }}"
+    enabled: false
+  failed_when: false
+
+- name: Debian uninstall tasks
+  when:
+    - ansible_facts['os_family'] == "Debian"
+  block:
+
+    - name: Remove Docker packages
+      ansible.builtin.apt:
+        name: "{{ docker_packages }}"
+        state: absent
+        purge: true
+        autoremove: true
+
+    - name: Remove legacy Docker packages
+      ansible.builtin.apt:
+        name: "{{ docker_old_packages_debian }}"
+        state: absent
+        purge: true
+        autoremove: true
+
+    - name: Remove Docker APT repository
+      ansible.builtin.file:
+        path: /etc/apt/sources.list.d/docker.list
+        state: absent
+      when:
+        - docker_remove_repository
+
+    - name: Remove Docker GPG key
+      ansible.builtin.file:
+        path: /etc/apt/keyrings/docker.asc
+        state: absent
+      when:
+        - docker_remove_gpg_keys
+
+- name: RedHat uninstall tasks
+  when:
+    - ansible_facts['os_family'] == "RedHat"
+  block:
+
+    - name: Remove Docker packages
+      ansible.builtin.package:
+        name: "{{ docker_packages }}"
+        state: absent
+
+    - name: Remove legacy Docker packages
+      ansible.builtin.package:
+        name: "{{ docker_old_packages_redhat }}"
+        state: absent
+
+    - name: Remove Docker YUM repository
+      ansible.builtin.file:
+        path: /etc/yum.repos.d/docker-ce.repo
+        state: absent
+      when:
+        - docker_remove_repository
+
+    - name: Remove Docker DNF module configuration
+      ansible.builtin.file:
+        path: /etc/dnf/modules.d/docker.module
+        state: absent
+      failed_when: false
+
+- name: Remove Docker daemon configuration
+  ansible.builtin.file:
+    path: "{{ docker_daemon_config_path }}"
+    state: absent
+  when:
+    - docker_manage_daemon_json
+
+- name: Remove Docker systemd override directory
+  ansible.builtin.file:
+    path: /etc/systemd/system/docker.service.d
+    state: absent
+
+- name: Remove remaining Docker binaries
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ docker_binaries }}"
+  failed_when: false
+
+- name: Remove Docker runtime data
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ docker_data_root }}"
+    - "{{ docker_containerd_root }}"
+  when:
+    - docker_remove_data
+
+- name: Reload systemd daemon
+  ansible.builtin.systemd:
+    daemon_reload: true
+  changed_when: false
+
+- name: Display Docker uninstall status
+  ansible.builtin.debug:
+    msg:
+      - "Docker packages removed"
+      - "Docker repositories removed: {{ docker_remove_repository }}"
+      - "Docker GPG keys removed: {{ docker_remove_gpg_keys }}"
+      - "Docker runtime data removed: {{ docker_remove_data }}"

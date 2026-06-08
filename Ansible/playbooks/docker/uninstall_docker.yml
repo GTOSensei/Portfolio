@@ -1,0 +1,11 @@
+---
+- name: Uninstall Docker
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars:
+    docker_state: absent
+
+  roles:
+    - role: docker_ce

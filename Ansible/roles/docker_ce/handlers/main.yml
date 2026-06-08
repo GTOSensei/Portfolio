@@ -1,0 +1,13 @@
+---
+- name: Restart Docker
+  ansible.builtin.service:
+    name: "{{ docker_service_name }}"
+    state: restarted
+
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true

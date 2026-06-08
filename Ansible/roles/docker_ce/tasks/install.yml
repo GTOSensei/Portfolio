@@ -1,0 +1,8 @@
+---
+- name: Include OS-specific installation tasks
+  ansible.builtin.include_tasks:
+    file: "install_{{ ansible_facts['os_family'] | lower }}.yml"
+    apply:
+      tags:
+        - docker
+        - docker_install
