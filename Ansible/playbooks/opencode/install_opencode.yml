@@ -1,7 +1,6 @@
 ---
-- name: Install OpenCode AI locally
-  hosts: localhost
-  connection: local
+- name: Install OpenCode
+  hosts: all
   gather_facts: true
 
   vars:

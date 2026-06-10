@@ -195,6 +195,32 @@ EOF
         chmod 600 \
           /home/#{vm[:user]}/.ssh/authorized_keys
 
+        # Create user Ansible directories
+        install -d \
+          -m 700 \
+          -o #{vm[:user]} \
+          -g #{vm[:user]} \
+          /home/#{vm[:user]}/.ansible
+
+        install -d \
+          -m 700 \
+          -o #{vm[:user]} \
+          -g #{vm[:user]} \
+          /home/#{vm[:user]}/.ansible/tmp
+
+        # Create root Ansible directories
+        install -d \
+          -m 700 \
+          -o root \
+          -g root \
+          /root/.ansible
+
+        install -d \
+          -m 700 \
+          -o root \
+          -g root \
+          /root/.ansible/tmp
+
         # SSH hardening
         mkdir -p /etc/ssh/sshd_config.d
 

@@ -47,6 +47,26 @@
     fail_msg: "Docker verification failed"
     success_msg: "Docker verification completed successfully"
 
+- name: Verify docker group membership
+  ansible.builtin.command:
+    cmd: id -nG {{ item }}
+  register: docker_group_check
+  changed_when: false
+  loop: "{{ docker_users }}"
+  when: docker_manage_users
+
+- name: Assert docker group membership
+  ansible.builtin.assert:
+    that:
+      - "'docker' in item.stdout.split()"
+    fail_msg: "User {{ item.item }} is not in docker group"
+    success_msg: "User {{ item.item }} belongs to docker group"
+    quiet: true
+  loop: "{{ docker_group_check.results | default([]) }}"
+  loop_control:
+    label: "{{ item.item }}"
+  when: docker_manage_users  
+
 - name: Show Docker verification summary
   ansible.builtin.debug:
     msg:

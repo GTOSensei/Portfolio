@@ -1,22 +1,68 @@
+# Local inventories
+# inventories/
+
+# Vault passwords
+vault_pass*
+
 # Vagrant
 .vagrant/
 
-# Vagrant logs
-*.log
+# Molecule
+.molecule/
 
 # VirtualBox
 *.vbox
 *.vbox-prev
 
-# Editors
+# Logs
+logs/
+*.log
+
+# Ansible cache
+.ansible/
+
+# Downloaded collections
+collections/
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
 .vscode/
+
+# JetBrains
 .idea/
 
-# Linux
+# Vim
 *.swp
 
-# macOS
-.DS_Store
+# Secrets and vault passwords
+*.vault
+vault_pass.txt
+vault-password.txt
 
-# Windows
+# Private keys
+*.pem
+*.key
+id_rsa
+id_ed25519
+id_ecdsa
+
+# Terraform (if used later)
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Molecule artifacts
+.molecule/
+
+# Temporary files
+*.tmp
+*.bak
+
+# OS files
+.DS_Store
 Thumbs.db
+
+

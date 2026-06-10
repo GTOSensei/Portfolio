@@ -1,7 +1,6 @@
 ---
-- name: Uninstall OpenCode AI locally
-  hosts: localhost
-  connection: local
+- name: Uninstall OpenCode
+  hosts: all
   gather_facts: true
 
   vars:
