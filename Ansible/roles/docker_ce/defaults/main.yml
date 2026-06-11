@@ -70,8 +70,9 @@ docker_binaries:
 
 docker_service_name: docker
 
-docker_manage_users: false
-docker_users: []
+docker_manage_users: true
+docker_users:
+  - "{{ ansible_user }}"
 
 docker_enable_service: true
 
@@ -81,7 +82,7 @@ docker_validate_certs: true
 
 docker_manage_daemon_json: true
 
-docker_remove_data: false
+docker_remove_data: false # true
 
 docker_remove_repository: true
 

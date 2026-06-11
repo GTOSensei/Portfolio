@@ -1,0 +1,8 @@
+---
+- name: Bootstrap SSH keys
+  hosts: all
+  become: false
+  gather_facts: false
+
+  roles:
+    - ssh_keys

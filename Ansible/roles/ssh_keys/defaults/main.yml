@@ -1,0 +1,6 @@
+---
+ssh_keys_user: "{{ ansible_user }}"
+
+ssh_keys_files:
+  - "{{ lookup('env', 'HOME') }}/.ssh/{{ ssh_key_name }}.pub"
+  - "{{ lookup('env', 'HOME') }}/.ssh/{{ ssh_key_name }}_ansible.pub"

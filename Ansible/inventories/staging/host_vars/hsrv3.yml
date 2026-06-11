@@ -1,0 +1,6 @@
+---
+ssh_keys_user: sakura
+
+ssh_keys_files:
+  - "{{ lookup('env', 'HOME') }}/.ssh/home_srv3.pub"
+  - "{{ lookup('env', 'HOME') }}/.ssh/home_srv3_ansible.pub"
