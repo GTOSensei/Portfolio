@@ -1,6 +1,4 @@
 ---
-ssh_keys_user: sakura
+ansible_ssh_private_key_file: ~/.ssh/home_srv2_ansible
 
-ssh_keys_files:
-  - "{{ lookup('env', 'HOME') }}/.ssh/home_srv2.pub"
-  - "{{ lookup('env', 'HOME') }}/.ssh/home_srv2_ansible.pub"
+ssh_key_name: home_srv2

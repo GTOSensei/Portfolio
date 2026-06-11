@@ -1,6 +1,8 @@
 ---
 - name: Install Docker
-  hosts: all
+  hosts:
+    - docker
+    - opencode
   become: true
   gather_facts: true
 
@@ -8,4 +10,4 @@
     docker_state: present
 
   roles:
-    - role: docker_ce
+    - docker_ce
