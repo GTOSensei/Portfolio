@@ -1,2 +1,12 @@
-[localhost]
-localhost ansible_connection=local
+all:
+  children:
+
+    opencode:
+      hosts:
+        localhost:
+          ansible_connection: local
+
+    docker:
+      hosts:
+        localhost:
+          ansible_connection: local
