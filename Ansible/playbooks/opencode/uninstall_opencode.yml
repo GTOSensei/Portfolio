@@ -1,6 +1,7 @@
 ---
 - name: Uninstall OpenCode
   hosts: all
+  become: false
   gather_facts: true
 
   vars:

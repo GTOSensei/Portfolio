@@ -5462,3 +5462,1077 @@ The offending line appears to be:
 2026-06-10 20:23:04,314 p=286456 u=onizuka n=ansible INFO| skipping: [hsrv1]
 2026-06-10 20:23:04,320 p=286456 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
 2026-06-10 20:23:04,320 p=286456 u=onizuka n=ansible INFO| hsrv1                      : ok=24   changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-06-11 11:34:32,417 p=34952 u=onizuka n=ansible INFO| PLAY [Bootstrap SSH keys] ************************************************************************************************************************
+2026-06-11 11:34:32,459 p=34952 u=onizuka n=ansible INFO| TASK [ssh_keys : Install SSH public keys] ********************************************************************************************************
+2026-06-11 11:34:33,144 p=34952 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1.pub)
+2026-06-11 11:34:33,447 p=34952 u=onizuka n=ansible INFO| changed: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1_ansible.pub)
+2026-06-11 11:34:33,452 p=34952 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:34:33,452 p=34952 u=onizuka n=ansible INFO| hsrv1                      : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-06-11 11:34:35,448 p=35038 u=onizuka n=ansible INFO| PLAY [Bootstrap SSH keys] ************************************************************************************************************************
+2026-06-11 11:34:35,477 p=35038 u=onizuka n=ansible INFO| TASK [ssh_keys : Install SSH public keys] ********************************************************************************************************
+2026-06-11 11:34:35,952 p=35038 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1.pub)
+2026-06-11 11:34:36,250 p=35038 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1_ansible.pub)
+2026-06-11 11:34:36,256 p=35038 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:34:36,256 p=35038 u=onizuka n=ansible INFO| hsrv1                      : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-06-11 11:34:40,510 p=35120 u=onizuka n=ansible INFO| PLAY [Bootstrap SSH keys] ************************************************************************************************************************
+2026-06-11 11:34:40,538 p=35120 u=onizuka n=ansible INFO| TASK [ssh_keys : Install SSH public keys] ********************************************************************************************************
+2026-06-11 11:34:41,005 p=35120 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1.pub)
+2026-06-11 11:34:41,302 p=35120 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1_ansible.pub)
+2026-06-11 11:34:41,307 p=35120 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:34:41,307 p=35120 u=onizuka n=ansible INFO| hsrv1                      : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-06-11 11:34:53,666 p=35298 u=onizuka n=ansible INFO| PLAY [Install OpenCode] **************************************************************************************************************************
+2026-06-11 11:34:53,696 p=35298 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:34:54,704 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:54,709 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:34:54,742 p=35298 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/install.yml for hsrv1
+2026-06-11 11:34:54,759 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Determine target install user] **************************************************************************************************
+2026-06-11 11:34:54,777 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:54,782 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:34:55,066 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:55,070 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Set target user home directory] *************************************************************************************************
+2026-06-11 11:34:55,084 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:55,089 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Ensure curl is installed] *******************************************************************************************************
+2026-06-11 11:34:55,907 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:55,912 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Check if OpenCode is already installed] *****************************************************************************************
+2026-06-11 11:34:56,194 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:56,207 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:34:56,216 p=35298 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:34:56,221 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Print existing OpenCode version] ************************************************************************************************
+2026-06-11 11:34:56,230 p=35298 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:34:56,235 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Download OpenCode installer] ****************************************************************************************************
+2026-06-11 11:34:57,370 p=35298 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:34:57,375 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Remove broken legacy system symlink] ********************************************************************************************
+2026-06-11 11:34:57,684 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:57,689 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root installation] ************************************************************************************************
+2026-06-11 11:34:57,914 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:34:57,919 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Install OpenCode as target user] ************************************************************************************************
+2026-06-11 11:35:03,061 p=35298 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:35:03,068 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:35:03,295 p=35298 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:35:03,300 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:35:03,322 p=35298 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify.yml for hsrv1
+2026-06-11 11:35:03,328 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode installation] ***************************************************************************************************
+2026-06-11 11:35:04,226 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:04,240 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode installation succeeded] *****************************************************************************************
+2026-06-11 11:35:04,252 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode installation completed successfully"
+}
+2026-06-11 11:35:04,257 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:35:04,270 p=35298 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "opencode_check.stdout_lines": [
+        "/home/sakura/.opencode/bin/opencode",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:35:04,276 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:35:04,287 p=35298 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:04,292 p=35298 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:35:04,300 p=35298 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:04,306 p=35298 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:35:04,306 p=35298 u=onizuka n=ansible INFO| hsrv1                      : ok=16   changed=3    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+2026-06-11 11:35:07,958 p=35477 u=onizuka n=ansible INFO| PLAY [Install OpenCode] **************************************************************************************************************************
+2026-06-11 11:35:07,988 p=35477 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:35:08,964 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:08,969 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:35:08,997 p=35477 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/install.yml for hsrv1
+2026-06-11 11:35:09,015 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Determine target install user] **************************************************************************************************
+2026-06-11 11:35:09,034 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:09,039 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:35:09,315 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:09,321 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Set target user home directory] *************************************************************************************************
+2026-06-11 11:35:09,335 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:09,340 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Ensure curl is installed] *******************************************************************************************************
+2026-06-11 11:35:10,124 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:10,130 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Check if OpenCode is already installed] *****************************************************************************************
+2026-06-11 11:35:10,582 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:10,587 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:35:11,541 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:11,547 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Print existing OpenCode version] ************************************************************************************************
+2026-06-11 11:35:11,562 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "OpenCode is already installed",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:35:11,567 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Download OpenCode installer] ****************************************************************************************************
+2026-06-11 11:35:11,576 p=35477 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:11,580 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Remove broken legacy system symlink] ********************************************************************************************
+2026-06-11 11:35:11,589 p=35477 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:11,593 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root installation] ************************************************************************************************
+2026-06-11 11:35:11,602 p=35477 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:11,607 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Install OpenCode as target user] ************************************************************************************************
+2026-06-11 11:35:11,618 p=35477 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:11,624 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:35:11,925 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:11,930 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:35:11,950 p=35477 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify.yml for hsrv1
+2026-06-11 11:35:11,959 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode installation] ***************************************************************************************************
+2026-06-11 11:35:12,834 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:12,838 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode installation succeeded] *****************************************************************************************
+2026-06-11 11:35:12,851 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode installation completed successfully"
+}
+2026-06-11 11:35:12,855 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:35:12,873 p=35477 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "opencode_check.stdout_lines": [
+        "/home/sakura/.opencode/bin/opencode",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:35:12,881 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:35:12,891 p=35477 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:12,896 p=35477 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:35:12,906 p=35477 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:12,912 p=35477 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:35:12,912 p=35477 u=onizuka n=ansible INFO| hsrv1                      : ok=14   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2026-06-11 11:35:28,887 p=35720 u=onizuka n=ansible INFO| PLAY [Install Docker] ****************************************************************************************************************************
+2026-06-11 11:35:28,894 p=35720 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:35:29,946 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:29,952 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker install tasks] **************************************************************************************************
+2026-06-11 11:35:29,981 p=35720 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/install.yml for hsrv1
+2026-06-11 11:35:29,985 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Include OS-specific installation tasks] ****************************************************************************************
+2026-06-11 11:35:30,012 p=35720 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/install_debian.yml for hsrv1
+2026-06-11 11:35:30,016 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Remove old Docker packages] ****************************************************************************************************
+2026-06-11 11:35:30,637 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:30,643 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Install Docker prerequisites] **************************************************************************************************
+2026-06-11 11:35:34,326 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:34,331 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Create Docker APT keyrings directory] ******************************************************************************************
+2026-06-11 11:35:34,634 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:34,640 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Download Docker official GPG key] **********************************************************************************************
+2026-06-11 11:35:35,226 p=35720 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:35:35,231 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Add Docker official repository] ************************************************************************************************
+2026-06-11 11:35:37,447 p=35720 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:35:37,452 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Install Docker CE packages] ****************************************************************************************************
+2026-06-11 11:35:51,462 p=35720 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:35:51,468 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Deploy Docker daemon configuration] ********************************************************************************************
+2026-06-11 11:35:52,120 p=35720 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:35:52,127 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Flush handlers] ****************************************************************************************************************
+2026-06-11 11:35:52,136 p=35720 u=onizuka n=ansible INFO| RUNNING HANDLER [docker_ce : Restart Docker] *****************************************************************************************************
+2026-06-11 11:35:53,207 p=35720 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:35:53,213 p=35720 u=onizuka n=ansible INFO| RUNNING HANDLER [docker_ce : Update apt cache] ***************************************************************************************************
+2026-06-11 11:35:54,699 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:54,704 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Ensure Docker service is enabled] **********************************************************************************************
+2026-06-11 11:35:55,094 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:55,099 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Ensure Docker service is started] **********************************************************************************************
+2026-06-11 11:35:55,480 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:55,485 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Add users to docker group] *****************************************************************************************************
+2026-06-11 11:35:55,884 p=35720 u=onizuka n=ansible INFO| changed: [hsrv1] => (item=sakura)
+2026-06-11 11:35:55,891 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker verification tasks] *********************************************************************************************
+2026-06-11 11:35:55,911 p=35720 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/verify.yml for hsrv1
+2026-06-11 11:35:55,916 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker version] *********************************************************************************************************
+2026-06-11 11:35:56,222 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:56,227 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker info] ************************************************************************************************************
+2026-06-11 11:35:56,492 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:56,497 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Compose plugin] **************************************************************************************************
+2026-06-11 11:35:56,755 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:56,760 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Buildx plugin] ***************************************************************************************************
+2026-06-11 11:35:57,042 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:57,046 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service is active] ***********************************************************************************************
+2026-06-11 11:35:57,272 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:57,277 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service is enabled] **********************************************************************************************
+2026-06-11 11:35:57,506 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:35:57,513 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Assert Docker daemon is healthy] ***********************************************************************************************
+2026-06-11 11:35:57,529 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "Docker verification completed successfully"
+}
+2026-06-11 11:35:57,534 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Verify docker group membership] ************************************************************************************************
+2026-06-11 11:35:57,757 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=sakura)
+2026-06-11 11:35:57,765 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Assert docker group membership] ************************************************************************************************
+2026-06-11 11:35:57,788 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=sakura)
+2026-06-11 11:35:57,794 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Show Docker verification summary] **********************************************************************************************
+2026-06-11 11:35:57,827 p=35720 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker Engine Version      : 29.5.3",
+        "Docker Compose Version     : v5.1.4",
+        "Docker Buildx Version      : github.com/docker/buildx v0.34.1 e0b0e77d18d3379bc1e0d55f3b37de288d36fe47",
+        "Docker Service Active      : active",
+        "Docker Service Enabled     : enabled"
+    ]
+}
+2026-06-11 11:35:57,833 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall tasks] ************************************************************************************************
+2026-06-11 11:35:57,842 p=35720 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:57,848 p=35720 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall verification tasks] ***********************************************************************************
+2026-06-11 11:35:57,856 p=35720 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:35:57,867 p=35720 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:35:57,867 p=35720 u=onizuka n=ansible INFO| hsrv1                      : ok=26   changed=6    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-06-11 11:36:26,615 p=36263 u=onizuka n=ansible INFO| PLAY [Install Docker] ****************************************************************************************************************************
+2026-06-11 11:36:26,623 p=36263 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:36:27,673 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:27,690 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker install tasks] **************************************************************************************************
+2026-06-11 11:36:27,703 p=36263 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/install.yml for hsrv1
+2026-06-11 11:36:27,707 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Include OS-specific installation tasks] ****************************************************************************************
+2026-06-11 11:36:27,734 p=36263 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/install_debian.yml for hsrv1
+2026-06-11 11:36:27,739 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Remove old Docker packages] ****************************************************************************************************
+2026-06-11 11:36:28,366 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:28,372 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Install Docker prerequisites] **************************************************************************************************
+2026-06-11 11:36:30,009 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:30,015 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Create Docker APT keyrings directory] ******************************************************************************************
+2026-06-11 11:36:30,315 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:30,321 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Download Docker official GPG key] **********************************************************************************************
+2026-06-11 11:36:30,851 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:30,856 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Add Docker official repository] ************************************************************************************************
+2026-06-11 11:36:31,279 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:31,285 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Install Docker CE packages] ****************************************************************************************************
+2026-06-11 11:36:32,899 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:32,907 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Deploy Docker daemon configuration] ********************************************************************************************
+2026-06-11 11:36:33,459 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:33,465 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Flush handlers] ****************************************************************************************************************
+2026-06-11 11:36:33,474 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Ensure Docker service is enabled] **********************************************************************************************
+2026-06-11 11:36:34,025 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:34,029 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Ensure Docker service is started] **********************************************************************************************
+2026-06-11 11:36:34,427 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:34,433 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Add users to docker group] *****************************************************************************************************
+2026-06-11 11:36:34,804 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=sakura)
+2026-06-11 11:36:34,811 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker verification tasks] *********************************************************************************************
+2026-06-11 11:36:34,830 p=36263 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/verify.yml for hsrv1
+2026-06-11 11:36:34,834 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker version] *********************************************************************************************************
+2026-06-11 11:36:35,148 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:35,154 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker info] ************************************************************************************************************
+2026-06-11 11:36:35,422 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:35,427 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Compose plugin] **************************************************************************************************
+2026-06-11 11:36:35,694 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:35,699 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Buildx plugin] ***************************************************************************************************
+2026-06-11 11:36:35,977 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:35,983 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service is active] ***********************************************************************************************
+2026-06-11 11:36:36,205 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:36,211 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service is enabled] **********************************************************************************************
+2026-06-11 11:36:36,435 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:36:36,441 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Assert Docker daemon is healthy] ***********************************************************************************************
+2026-06-11 11:36:36,457 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "Docker verification completed successfully"
+}
+2026-06-11 11:36:36,464 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Verify docker group membership] ************************************************************************************************
+2026-06-11 11:36:36,692 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=sakura)
+2026-06-11 11:36:36,699 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Assert docker group membership] ************************************************************************************************
+2026-06-11 11:36:36,720 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=sakura)
+2026-06-11 11:36:36,726 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Show Docker verification summary] **********************************************************************************************
+2026-06-11 11:36:36,749 p=36263 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker Engine Version      : 29.5.3",
+        "Docker Compose Version     : v5.1.4",
+        "Docker Buildx Version      : github.com/docker/buildx v0.34.1 e0b0e77d18d3379bc1e0d55f3b37de288d36fe47",
+        "Docker Service Active      : active",
+        "Docker Service Enabled     : enabled"
+    ]
+}
+2026-06-11 11:36:36,754 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall tasks] ************************************************************************************************
+2026-06-11 11:36:36,761 p=36263 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:36:36,766 p=36263 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall verification tasks] ***********************************************************************************
+2026-06-11 11:36:36,776 p=36263 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:36:36,782 p=36263 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:36:36,782 p=36263 u=onizuka n=ansible INFO| hsrv1                      : ok=24   changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-06-11 11:37:27,979 p=36898 u=onizuka n=ansible INFO| PLAY [Uninstall OpenCode] ************************************************************************************************************************
+2026-06-11 11:37:28,010 p=36898 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:37:29,036 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:29,042 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:37:29,056 p=36898 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:37:29,061 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:37:29,093 p=36898 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:37:29,111 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:37:29,134 p=36898 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/uninstall.yml for hsrv1
+2026-06-11 11:37:29,138 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Determine target uninstall user] ************************************************************************************************
+2026-06-11 11:37:29,156 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:29,160 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:37:29,444 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:29,449 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Set target user paths] **********************************************************************************************************
+2026-06-11 11:37:29,468 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:29,473 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Check if user OpenCode installation exists] *************************************************************************************
+2026-06-11 11:37:29,764 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:29,769 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Check if system OpenCode symlink exists] ****************************************************************************************
+2026-06-11 11:37:29,978 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:29,984 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version before uninstall] *******************************************************************************
+2026-06-11 11:37:30,964 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:30,969 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Print installed OpenCode version] ***********************************************************************************************
+2026-06-11 11:37:30,986 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Removing OpenCode installation",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:37:30,991 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Remove user OpenCode installation directory] ************************************************************************************
+2026-06-11 11:37:31,394 p=36898 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:37:31,398 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Remove local user OpenCode binary] **********************************************************************************************
+2026-06-11 11:37:31,626 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:31,631 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode cache directory] ************************************************************************************************
+2026-06-11 11:37:31,876 p=36898 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:37:31,881 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode config directory] ***********************************************************************************************
+2026-06-11 11:37:32,177 p=36898 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:37:32,183 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy system-wide OpenCode symlink] *************************************************************************************
+2026-06-11 11:37:32,408 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:32,415 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root OpenCode installation] ***************************************************************************************
+2026-06-11 11:37:32,641 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:32,646 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:37:32,873 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/tmp/opencode-install.sh)
+2026-06-11 11:37:33,088 p=36898 u=onizuka n=ansible INFO| changed: [hsrv1] => (item=/tmp/opencode)
+2026-06-11 11:37:33,097 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:37:33,116 p=36898 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:37:33,122 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode removal] ********************************************************************************************************
+2026-06-11 11:37:33,332 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:37:33,338 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode removal succeeded] **********************************************************************************************
+2026-06-11 11:37:33,350 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode uninstall completed successfully"
+}
+2026-06-11 11:37:33,354 p=36898 u=onizuka n=ansible INFO| TASK [opencode : Show uninstall verification result] *********************************************************************************************
+2026-06-11 11:37:33,370 p=36898 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "uninstall_verify.stdout_lines": [
+        "OpenCode removed"
+    ]
+}
+2026-06-11 11:37:33,375 p=36898 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:37:33,375 p=36898 u=onizuka n=ansible INFO| hsrv1                      : ok=20   changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-06-11 11:38:14,635 p=37315 u=onizuka n=ansible INFO| PLAY [Uninstall OpenCode] ************************************************************************************************************************
+2026-06-11 11:38:14,664 p=37315 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:38:15,631 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:15,637 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:38:15,652 p=37315 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:15,660 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:38:15,690 p=37315 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:15,709 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:38:15,730 p=37315 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/uninstall.yml for hsrv1
+2026-06-11 11:38:15,734 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Determine target uninstall user] ************************************************************************************************
+2026-06-11 11:38:15,751 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:15,755 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:38:16,029 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:16,035 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Set target user paths] **********************************************************************************************************
+2026-06-11 11:38:16,052 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:16,058 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Check if user OpenCode installation exists] *************************************************************************************
+2026-06-11 11:38:16,342 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:16,346 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Check if system OpenCode symlink exists] ****************************************************************************************
+2026-06-11 11:38:16,562 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:16,569 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version before uninstall] *******************************************************************************
+2026-06-11 11:38:16,579 p=37315 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:16,583 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Print installed OpenCode version] ***********************************************************************************************
+2026-06-11 11:38:16,594 p=37315 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:16,599 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Remove user OpenCode installation directory] ************************************************************************************
+2026-06-11 11:38:16,905 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:16,912 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Remove local user OpenCode binary] **********************************************************************************************
+2026-06-11 11:38:17,138 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:17,143 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode cache directory] ************************************************************************************************
+2026-06-11 11:38:17,371 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:17,377 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode config directory] ***********************************************************************************************
+2026-06-11 11:38:17,611 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:17,616 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy system-wide OpenCode symlink] *************************************************************************************
+2026-06-11 11:38:17,842 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:17,848 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root OpenCode installation] ***************************************************************************************
+2026-06-11 11:38:18,076 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:18,082 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:38:18,311 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/tmp/opencode-install.sh)
+2026-06-11 11:38:18,529 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/tmp/opencode)
+2026-06-11 11:38:18,535 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:38:18,551 p=37315 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:38:18,560 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode removal] ********************************************************************************************************
+2026-06-11 11:38:18,834 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:18,841 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode removal succeeded] **********************************************************************************************
+2026-06-11 11:38:18,853 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode uninstall completed successfully"
+}
+2026-06-11 11:38:18,857 p=37315 u=onizuka n=ansible INFO| TASK [opencode : Show uninstall verification result] *********************************************************************************************
+2026-06-11 11:38:18,873 p=37315 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "uninstall_verify.stdout_lines": [
+        "OpenCode removed"
+    ]
+}
+2026-06-11 11:38:18,879 p=37315 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:38:18,879 p=37315 u=onizuka n=ansible INFO| hsrv1                      : ok=18   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+2026-06-11 11:38:25,546 p=37487 u=onizuka n=ansible INFO| PLAY [Uninstall Docker] **************************************************************************************************************************
+2026-06-11 11:38:25,554 p=37487 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:38:26,628 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:26,644 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker install tasks] **************************************************************************************************
+2026-06-11 11:38:26,654 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:26,659 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker verification tasks] *********************************************************************************************
+2026-06-11 11:38:26,667 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:26,671 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall tasks] ************************************************************************************************
+2026-06-11 11:38:26,695 p=37487 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/uninstall.yml for hsrv1
+2026-06-11 11:38:26,699 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Stop Docker service] ***********************************************************************************************************
+2026-06-11 11:38:27,247 p=37487 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:38:27,252 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Disable Docker service] ********************************************************************************************************
+2026-06-11 11:38:28,866 p=37487 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:38:28,872 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:38:34,327 p=37487 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:38:34,332 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:38:34,896 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:34,904 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker APT repository] **************************************************************************************************
+2026-06-11 11:38:35,209 p=37487 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:38:35,215 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker GPG key] *********************************************************************************************************
+2026-06-11 11:38:35,452 p=37487 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:38:35,457 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:38:35,472 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:35,477 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:38:35,490 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:35,494 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker YUM repository] **************************************************************************************************
+2026-06-11 11:38:35,505 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:35,509 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker DNF module configuration] ****************************************************************************************
+2026-06-11 11:38:35,523 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:35,528 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker daemon configuration] ********************************************************************************************
+2026-06-11 11:38:35,760 p=37487 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:38:35,765 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker systemd override directory] **************************************************************************************
+2026-06-11 11:38:35,995 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:36,000 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove remaining Docker binaries] **********************************************************************************************
+2026-06-11 11:38:36,267 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/docker)
+2026-06-11 11:38:36,479 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/docker)
+2026-06-11 11:38:36,697 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/dockerd)
+2026-06-11 11:38:36,909 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/dockerd)
+2026-06-11 11:38:37,138 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/containerd)
+2026-06-11 11:38:37,353 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/containerd)
+2026-06-11 11:38:37,569 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/runc)
+2026-06-11 11:38:37,782 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/runc)
+2026-06-11 11:38:37,789 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker runtime data] ****************************************************************************************************
+2026-06-11 11:38:37,801 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1] => (item=/var/lib/docker) 
+2026-06-11 11:38:37,802 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1] => (item=/var/lib/containerd) 
+2026-06-11 11:38:37,803 p=37487 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:38:37,808 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Reload systemd daemon] *********************************************************************************************************
+2026-06-11 11:38:38,576 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:38,583 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall status] ***********************************************************************************************
+2026-06-11 11:38:38,601 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker packages removed",
+        "Docker repositories removed: True",
+        "Docker GPG keys removed: True",
+        "Docker runtime data removed: False"
+    ]
+}
+2026-06-11 11:38:38,609 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall verification tasks] ***********************************************************************************
+2026-06-11 11:38:38,628 p=37487 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:38:38,636 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker binary removal] **************************************************************************************************
+2026-06-11 11:38:38,920 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:38,925 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Dockerd binary removal] *************************************************************************************************
+2026-06-11 11:38:39,137 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:39,143 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Verify containerd binary removal] **********************************************************************************************
+2026-06-11 11:38:39,359 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:39,365 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Compose plugin removal] ******************************************************************************************
+2026-06-11 11:38:39,582 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-compose)
+2026-06-11 11:38:39,786 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-compose)
+2026-06-11 11:38:39,793 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Buildx plugin removal] *******************************************************************************************
+2026-06-11 11:38:40,010 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-buildx)
+2026-06-11 11:38:40,213 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-buildx)
+2026-06-11 11:38:40,221 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service state] ***************************************************************************************************
+2026-06-11 11:38:40,510 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:40,516 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service enablement] **********************************************************************************************
+2026-06-11 11:38:40,741 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:38:40,748 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Assert Docker uninstall completed] *********************************************************************************************
+2026-06-11 11:38:40,779 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "Docker uninstall completed successfully"
+}
+2026-06-11 11:38:40,784 p=37487 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall verification summary] *********************************************************************************
+2026-06-11 11:38:40,815 p=37487 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker binary removed         : True",
+        "Dockerd binary removed        : True",
+        "Containerd binary removed     : True",
+        "Docker service state          : inactive",
+        "Docker service enabled        : not-found",
+        "Docker Compose plugin removed : True",
+        "Docker Buildx plugin removed  : True"
+    ]
+}
+2026-06-11 11:38:40,823 p=37487 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:38:40,823 p=37487 u=onizuka n=ansible INFO| hsrv1                      : ok=23   changed=6    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2026-06-11 11:39:18,238 p=37970 u=onizuka n=ansible INFO| PLAY [Uninstall Docker] **************************************************************************************************************************
+2026-06-11 11:39:18,246 p=37970 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:39:19,303 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:19,320 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker install tasks] **************************************************************************************************
+2026-06-11 11:39:19,330 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:39:19,334 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker verification tasks] *********************************************************************************************
+2026-06-11 11:39:19,342 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:39:19,346 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall tasks] ************************************************************************************************
+2026-06-11 11:39:19,370 p=37970 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/uninstall.yml for hsrv1
+2026-06-11 11:39:19,374 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Stop Docker service] ***********************************************************************************************************
+2026-06-11 11:39:19,899 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:19,905 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Disable Docker service] ********************************************************************************************************
+2026-06-11 11:39:20,274 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:20,280 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:39:21,899 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:21,905 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:39:22,452 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:22,459 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker APT repository] **************************************************************************************************
+2026-06-11 11:39:22,764 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:22,770 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker GPG key] *********************************************************************************************************
+2026-06-11 11:39:22,998 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:23,007 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:39:23,017 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:39:23,022 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:39:23,032 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:39:23,039 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker YUM repository] **************************************************************************************************
+2026-06-11 11:39:23,051 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:39:23,057 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker DNF module configuration] ****************************************************************************************
+2026-06-11 11:39:23,068 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:39:23,073 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker daemon configuration] ********************************************************************************************
+2026-06-11 11:39:23,300 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:23,307 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker systemd override directory] **************************************************************************************
+2026-06-11 11:39:23,534 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:23,539 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove remaining Docker binaries] **********************************************************************************************
+2026-06-11 11:39:23,770 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/docker)
+2026-06-11 11:39:23,989 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/docker)
+2026-06-11 11:39:24,205 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/dockerd)
+2026-06-11 11:39:24,425 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/dockerd)
+2026-06-11 11:39:24,642 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/containerd)
+2026-06-11 11:39:24,859 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/containerd)
+2026-06-11 11:39:25,077 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/runc)
+2026-06-11 11:39:25,293 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/runc)
+2026-06-11 11:39:25,300 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker runtime data] ****************************************************************************************************
+2026-06-11 11:39:25,311 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1] => (item=/var/lib/docker) 
+2026-06-11 11:39:25,313 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1] => (item=/var/lib/containerd) 
+2026-06-11 11:39:25,313 p=37970 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:39:25,318 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Reload systemd daemon] *********************************************************************************************************
+2026-06-11 11:39:26,071 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:26,078 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall status] ***********************************************************************************************
+2026-06-11 11:39:26,092 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker packages removed",
+        "Docker repositories removed: True",
+        "Docker GPG keys removed: True",
+        "Docker runtime data removed: False"
+    ]
+}
+2026-06-11 11:39:26,099 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall verification tasks] ***********************************************************************************
+2026-06-11 11:39:26,123 p=37970 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:39:26,130 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker binary removal] **************************************************************************************************
+2026-06-11 11:39:26,414 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:26,420 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Dockerd binary removal] *************************************************************************************************
+2026-06-11 11:39:26,630 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:26,636 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Verify containerd binary removal] **********************************************************************************************
+2026-06-11 11:39:26,850 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:26,856 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Compose plugin removal] ******************************************************************************************
+2026-06-11 11:39:27,077 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-compose)
+2026-06-11 11:39:27,279 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-compose)
+2026-06-11 11:39:27,286 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Buildx plugin removal] *******************************************************************************************
+2026-06-11 11:39:27,501 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-buildx)
+2026-06-11 11:39:27,708 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-buildx)
+2026-06-11 11:39:27,716 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service state] ***************************************************************************************************
+2026-06-11 11:39:28,004 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:28,011 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service enablement] **********************************************************************************************
+2026-06-11 11:39:28,233 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:39:28,239 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Assert Docker uninstall completed] *********************************************************************************************
+2026-06-11 11:39:28,268 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "Docker uninstall completed successfully"
+}
+2026-06-11 11:39:28,273 p=37970 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall verification summary] *********************************************************************************
+2026-06-11 11:39:28,305 p=37970 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker binary removed         : True",
+        "Dockerd binary removed        : True",
+        "Containerd binary removed     : True",
+        "Docker service state          : inactive",
+        "Docker service enabled        : not-found",
+        "Docker Compose plugin removed : True",
+        "Docker Buildx plugin removed  : True"
+    ]
+}
+2026-06-11 11:39:28,310 p=37970 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:39:28,310 p=37970 u=onizuka n=ansible INFO| hsrv1                      : ok=23   changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2026-06-11 11:42:07,004 p=39519 u=onizuka n=ansible INFO| PLAY [Uninstall Docker] **************************************************************************************************************************
+2026-06-11 11:42:07,012 p=39519 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:42:08,972 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:08,989 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker install tasks] **************************************************************************************************
+2026-06-11 11:42:08,999 p=39519 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:09,003 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker verification tasks] *********************************************************************************************
+2026-06-11 11:42:09,011 p=39519 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:09,016 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall tasks] ************************************************************************************************
+2026-06-11 11:42:09,039 p=39519 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/uninstall.yml for hsrv1
+2026-06-11 11:42:09,044 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Stop Docker service] ***********************************************************************************************************
+2026-06-11 11:42:09,612 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:09,618 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Disable Docker service] ********************************************************************************************************
+2026-06-11 11:42:10,000 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:10,005 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:42:10,698 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:10,705 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:42:11,258 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:11,264 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker APT repository] **************************************************************************************************
+2026-06-11 11:42:11,574 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:11,580 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker GPG key] *********************************************************************************************************
+2026-06-11 11:42:11,811 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:11,819 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:42:11,829 p=39519 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:11,836 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:42:11,847 p=39519 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:11,851 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker YUM repository] **************************************************************************************************
+2026-06-11 11:42:11,863 p=39519 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:11,867 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker DNF module configuration] ****************************************************************************************
+2026-06-11 11:42:11,882 p=39519 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:11,886 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker daemon configuration] ********************************************************************************************
+2026-06-11 11:42:12,121 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:12,127 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker systemd override directory] **************************************************************************************
+2026-06-11 11:42:12,356 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:12,362 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove remaining Docker binaries] **********************************************************************************************
+2026-06-11 11:42:12,597 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/docker)
+2026-06-11 11:42:12,818 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/docker)
+2026-06-11 11:42:13,039 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/dockerd)
+2026-06-11 11:42:13,267 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/dockerd)
+2026-06-11 11:42:13,489 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/containerd)
+2026-06-11 11:42:13,709 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/containerd)
+2026-06-11 11:42:13,931 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/runc)
+2026-06-11 11:42:14,152 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/runc)
+2026-06-11 11:42:14,160 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker runtime data] ****************************************************************************************************
+2026-06-11 11:42:14,407 p=39519 u=onizuka n=ansible INFO| changed: [hsrv1] => (item=/var/lib/docker)
+2026-06-11 11:42:14,644 p=39519 u=onizuka n=ansible INFO| changed: [hsrv1] => (item=/var/lib/containerd)
+2026-06-11 11:42:14,651 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Reload systemd daemon] *********************************************************************************************************
+2026-06-11 11:42:15,428 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:15,434 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall status] ***********************************************************************************************
+2026-06-11 11:42:15,448 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker packages removed",
+        "Docker repositories removed: True",
+        "Docker GPG keys removed: True",
+        "Docker runtime data removed: True"
+    ]
+}
+2026-06-11 11:42:15,452 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall verification tasks] ***********************************************************************************
+2026-06-11 11:42:15,475 p=39519 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:42:15,483 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker binary removal] **************************************************************************************************
+2026-06-11 11:42:15,773 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:15,779 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Dockerd binary removal] *************************************************************************************************
+2026-06-11 11:42:16,002 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:16,008 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Verify containerd binary removal] **********************************************************************************************
+2026-06-11 11:42:16,229 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:16,236 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Compose plugin removal] ******************************************************************************************
+2026-06-11 11:42:16,461 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-compose)
+2026-06-11 11:42:16,677 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-compose)
+2026-06-11 11:42:16,684 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Buildx plugin removal] *******************************************************************************************
+2026-06-11 11:42:16,910 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-buildx)
+2026-06-11 11:42:17,120 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-buildx)
+2026-06-11 11:42:17,126 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service state] ***************************************************************************************************
+2026-06-11 11:42:17,423 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:17,429 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service enablement] **********************************************************************************************
+2026-06-11 11:42:17,661 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:17,667 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Assert Docker uninstall completed] *********************************************************************************************
+2026-06-11 11:42:17,696 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "Docker uninstall completed successfully"
+}
+2026-06-11 11:42:17,701 p=39519 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall verification summary] *********************************************************************************
+2026-06-11 11:42:17,732 p=39519 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker binary removed         : True",
+        "Dockerd binary removed        : True",
+        "Containerd binary removed     : True",
+        "Docker service state          : inactive",
+        "Docker service enabled        : not-found",
+        "Docker Compose plugin removed : True",
+        "Docker Buildx plugin removed  : True"
+    ]
+}
+2026-06-11 11:42:17,737 p=39519 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:42:17,738 p=39519 u=onizuka n=ansible INFO| hsrv1                      : ok=24   changed=1    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2026-06-11 11:42:33,969 p=39821 u=onizuka n=ansible INFO| PLAY [Uninstall Docker] **************************************************************************************************************************
+2026-06-11 11:42:33,977 p=39821 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:42:35,041 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:35,058 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker install tasks] **************************************************************************************************
+2026-06-11 11:42:35,067 p=39821 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:35,072 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker verification tasks] *********************************************************************************************
+2026-06-11 11:42:35,084 p=39821 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:35,088 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall tasks] ************************************************************************************************
+2026-06-11 11:42:35,112 p=39821 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/uninstall.yml for hsrv1
+2026-06-11 11:42:35,116 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Stop Docker service] ***********************************************************************************************************
+2026-06-11 11:42:35,654 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:35,661 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Disable Docker service] ********************************************************************************************************
+2026-06-11 11:42:36,037 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:36,042 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:42:36,696 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:36,702 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:42:37,264 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:37,269 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker APT repository] **************************************************************************************************
+2026-06-11 11:42:37,583 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:37,588 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker GPG key] *********************************************************************************************************
+2026-06-11 11:42:37,819 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:37,826 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:42:37,837 p=39821 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:37,841 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:42:37,853 p=39821 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:37,857 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker YUM repository] **************************************************************************************************
+2026-06-11 11:42:37,868 p=39821 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:37,874 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker DNF module configuration] ****************************************************************************************
+2026-06-11 11:42:37,885 p=39821 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:42:37,890 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker daemon configuration] ********************************************************************************************
+2026-06-11 11:42:38,121 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:38,126 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker systemd override directory] **************************************************************************************
+2026-06-11 11:42:38,354 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:38,360 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove remaining Docker binaries] **********************************************************************************************
+2026-06-11 11:42:38,595 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/docker)
+2026-06-11 11:42:38,815 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/docker)
+2026-06-11 11:42:39,033 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/dockerd)
+2026-06-11 11:42:39,252 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/dockerd)
+2026-06-11 11:42:39,476 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/containerd)
+2026-06-11 11:42:39,697 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/containerd)
+2026-06-11 11:42:39,915 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/runc)
+2026-06-11 11:42:40,132 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/runc)
+2026-06-11 11:42:40,139 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker runtime data] ****************************************************************************************************
+2026-06-11 11:42:40,369 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/var/lib/docker)
+2026-06-11 11:42:40,588 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/var/lib/containerd)
+2026-06-11 11:42:40,594 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Reload systemd daemon] *********************************************************************************************************
+2026-06-11 11:42:41,361 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:41,368 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall status] ***********************************************************************************************
+2026-06-11 11:42:41,382 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker packages removed",
+        "Docker repositories removed: True",
+        "Docker GPG keys removed: True",
+        "Docker runtime data removed: True"
+    ]
+}
+2026-06-11 11:42:41,387 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall verification tasks] ***********************************************************************************
+2026-06-11 11:42:41,411 p=39821 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:42:41,419 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker binary removal] **************************************************************************************************
+2026-06-11 11:42:41,708 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:41,714 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Dockerd binary removal] *************************************************************************************************
+2026-06-11 11:42:41,931 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:41,937 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Verify containerd binary removal] **********************************************************************************************
+2026-06-11 11:42:42,158 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:42,164 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Compose plugin removal] ******************************************************************************************
+2026-06-11 11:42:42,381 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-compose)
+2026-06-11 11:42:42,590 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-compose)
+2026-06-11 11:42:42,598 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Buildx plugin removal] *******************************************************************************************
+2026-06-11 11:42:42,822 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-buildx)
+2026-06-11 11:42:43,026 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-buildx)
+2026-06-11 11:42:43,034 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service state] ***************************************************************************************************
+2026-06-11 11:42:43,329 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:43,335 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service enablement] **********************************************************************************************
+2026-06-11 11:42:43,560 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:42:43,566 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Assert Docker uninstall completed] *********************************************************************************************
+2026-06-11 11:42:43,594 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "Docker uninstall completed successfully"
+}
+2026-06-11 11:42:43,599 p=39821 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall verification summary] *********************************************************************************
+2026-06-11 11:42:43,633 p=39821 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker binary removed         : True",
+        "Dockerd binary removed        : True",
+        "Containerd binary removed     : True",
+        "Docker service state          : inactive",
+        "Docker service enabled        : not-found",
+        "Docker Compose plugin removed : True",
+        "Docker Buildx plugin removed  : True"
+    ]
+}
+2026-06-11 11:42:43,639 p=39821 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:42:43,640 p=39821 u=onizuka n=ansible INFO| hsrv1                      : ok=24   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2026-06-11 11:43:05,697 p=40284 u=onizuka n=ansible INFO| PLAY [Uninstall Docker] **************************************************************************************************************************
+2026-06-11 11:43:05,706 p=40284 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:43:06,786 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:06,803 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker install tasks] **************************************************************************************************
+2026-06-11 11:43:06,813 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:43:06,819 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker verification tasks] *********************************************************************************************
+2026-06-11 11:43:06,827 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:43:06,832 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall tasks] ************************************************************************************************
+2026-06-11 11:43:06,856 p=40284 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/uninstall.yml for hsrv1
+2026-06-11 11:43:06,862 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Stop Docker service] ***********************************************************************************************************
+2026-06-11 11:43:07,444 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:07,449 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Disable Docker service] ********************************************************************************************************
+2026-06-11 11:43:07,828 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:07,833 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:43:08,483 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:08,490 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:43:09,046 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:09,051 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker APT repository] **************************************************************************************************
+2026-06-11 11:43:09,357 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:09,364 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker GPG key] *********************************************************************************************************
+2026-06-11 11:43:09,596 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:09,602 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker packages] ********************************************************************************************************
+2026-06-11 11:43:09,613 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:43:09,618 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove legacy Docker packages] *************************************************************************************************
+2026-06-11 11:43:09,629 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:43:09,634 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker YUM repository] **************************************************************************************************
+2026-06-11 11:43:09,645 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:43:09,651 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker DNF module configuration] ****************************************************************************************
+2026-06-11 11:43:09,666 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:43:09,672 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker daemon configuration] ********************************************************************************************
+2026-06-11 11:43:09,901 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:09,907 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker systemd override directory] **************************************************************************************
+2026-06-11 11:43:10,133 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:10,139 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove remaining Docker binaries] **********************************************************************************************
+2026-06-11 11:43:10,371 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/docker)
+2026-06-11 11:43:10,590 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/docker)
+2026-06-11 11:43:10,811 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/dockerd)
+2026-06-11 11:43:11,034 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/dockerd)
+2026-06-11 11:43:11,252 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/containerd)
+2026-06-11 11:43:11,474 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/containerd)
+2026-06-11 11:43:11,695 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/bin/runc)
+2026-06-11 11:43:11,916 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/bin/runc)
+2026-06-11 11:43:11,922 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Remove Docker runtime data] ****************************************************************************************************
+2026-06-11 11:43:11,933 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1] => (item=/var/lib/docker) 
+2026-06-11 11:43:11,935 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1] => (item=/var/lib/containerd) 
+2026-06-11 11:43:11,936 p=40284 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:43:11,941 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Reload systemd daemon] *********************************************************************************************************
+2026-06-11 11:43:12,708 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:12,714 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall status] ***********************************************************************************************
+2026-06-11 11:43:12,728 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker packages removed",
+        "Docker repositories removed: True",
+        "Docker GPG keys removed: True",
+        "Docker runtime data removed: False"
+    ]
+}
+2026-06-11 11:43:12,734 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Include Docker uninstall verification tasks] ***********************************************************************************
+2026-06-11 11:43:12,758 p=40284 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/docker_ce/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:43:12,765 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker binary removal] **************************************************************************************************
+2026-06-11 11:43:13,061 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:13,067 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Dockerd binary removal] *************************************************************************************************
+2026-06-11 11:43:13,288 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:13,294 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Verify containerd binary removal] **********************************************************************************************
+2026-06-11 11:43:13,516 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:13,522 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Compose plugin removal] ******************************************************************************************
+2026-06-11 11:43:13,743 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-compose)
+2026-06-11 11:43:13,954 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-compose)
+2026-06-11 11:43:13,961 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker Buildx plugin removal] *******************************************************************************************
+2026-06-11 11:43:14,181 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/libexec/docker/cli-plugins/docker-buildx)
+2026-06-11 11:43:14,391 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/usr/local/lib/docker/cli-plugins/docker-buildx)
+2026-06-11 11:43:14,398 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service state] ***************************************************************************************************
+2026-06-11 11:43:14,700 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:14,707 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Verify Docker service enablement] **********************************************************************************************
+2026-06-11 11:43:14,933 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:43:14,939 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Assert Docker uninstall completed] *********************************************************************************************
+2026-06-11 11:43:14,969 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "Docker uninstall completed successfully"
+}
+2026-06-11 11:43:14,975 p=40284 u=onizuka n=ansible INFO| TASK [docker_ce : Display Docker uninstall verification summary] *********************************************************************************
+2026-06-11 11:43:15,007 p=40284 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Docker binary removed         : True",
+        "Dockerd binary removed        : True",
+        "Containerd binary removed     : True",
+        "Docker service state          : inactive",
+        "Docker service enabled        : not-found",
+        "Docker Compose plugin removed : True",
+        "Docker Buildx plugin removed  : True"
+    ]
+}
+2026-06-11 11:43:15,013 p=40284 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:43:15,013 p=40284 u=onizuka n=ansible INFO| hsrv1                      : ok=23   changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2026-06-11 11:50:26,124 p=51059 u=onizuka n=ansible INFO| PLAY [Bootstrap SSH keys] ************************************************************************************************************************
+2026-06-11 11:50:26,152 p=51059 u=onizuka n=ansible INFO| TASK [ssh_keys : Install SSH public keys] ********************************************************************************************************
+2026-06-11 11:50:27,142 p=51059 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1.pub)
+2026-06-11 11:50:27,453 p=51059 u=onizuka n=ansible INFO| changed: [hsrv1] => (item=/home/onizuka/.ssh/home_srv1_ansible.pub)
+2026-06-11 11:50:27,458 p=51059 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:50:27,459 p=51059 u=onizuka n=ansible INFO| hsrv1                      : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-06-11 11:50:35,290 p=51181 u=onizuka n=ansible INFO| PLAY [Install OpenCode] **************************************************************************************************************************
+2026-06-11 11:50:35,319 p=51181 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:50:36,342 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:36,346 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:50:36,375 p=51181 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/install.yml for hsrv1
+2026-06-11 11:50:36,392 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Determine target install user] **************************************************************************************************
+2026-06-11 11:50:36,412 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:36,416 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:50:36,706 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:36,711 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Set target user home directory] *************************************************************************************************
+2026-06-11 11:50:36,724 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:36,729 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Ensure curl is installed] *******************************************************************************************************
+2026-06-11 11:50:37,562 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:37,567 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Check if OpenCode is already installed] *****************************************************************************************
+2026-06-11 11:50:37,845 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:37,851 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:50:37,861 p=51181 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:37,866 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Print existing OpenCode version] ************************************************************************************************
+2026-06-11 11:50:37,877 p=51181 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:37,882 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Download OpenCode installer] ****************************************************************************************************
+2026-06-11 11:50:39,055 p=51181 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:50:39,061 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Remove broken legacy system symlink] ********************************************************************************************
+2026-06-11 11:50:39,372 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:39,377 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root installation] ************************************************************************************************
+2026-06-11 11:50:39,606 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:39,611 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Install OpenCode as target user] ************************************************************************************************
+2026-06-11 11:50:43,766 p=51181 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:50:43,773 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:50:44,001 p=51181 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:50:44,006 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:50:44,030 p=51181 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify.yml for hsrv1
+2026-06-11 11:50:44,037 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode installation] ***************************************************************************************************
+2026-06-11 11:50:44,929 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:44,934 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode installation succeeded] *****************************************************************************************
+2026-06-11 11:50:44,949 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode installation completed successfully"
+}
+2026-06-11 11:50:44,953 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:50:44,966 p=51181 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "opencode_check.stdout_lines": [
+        "/home/sakura/.opencode/bin/opencode",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:50:44,970 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:50:44,979 p=51181 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:44,984 p=51181 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:50:44,995 p=51181 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:45,000 p=51181 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:50:45,000 p=51181 u=onizuka n=ansible INFO| hsrv1                      : ok=16   changed=3    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+2026-06-11 11:50:46,797 p=51364 u=onizuka n=ansible INFO| PLAY [Install OpenCode] **************************************************************************************************************************
+2026-06-11 11:50:46,826 p=51364 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:50:47,799 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:47,804 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:50:47,831 p=51364 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/install.yml for hsrv1
+2026-06-11 11:50:47,848 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Determine target install user] **************************************************************************************************
+2026-06-11 11:50:47,865 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:47,869 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:50:48,147 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:48,152 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Set target user home directory] *************************************************************************************************
+2026-06-11 11:50:48,166 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:48,171 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Ensure curl is installed] *******************************************************************************************************
+2026-06-11 11:50:48,972 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:48,978 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Check if OpenCode is already installed] *****************************************************************************************
+2026-06-11 11:50:49,442 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:49,449 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:50:50,410 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:50,417 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Print existing OpenCode version] ************************************************************************************************
+2026-06-11 11:50:50,429 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "OpenCode is already installed",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:50:50,433 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Download OpenCode installer] ****************************************************************************************************
+2026-06-11 11:50:50,444 p=51364 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:50,448 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Remove broken legacy system symlink] ********************************************************************************************
+2026-06-11 11:50:50,457 p=51364 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:50,461 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root installation] ************************************************************************************************
+2026-06-11 11:50:50,474 p=51364 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:50,480 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Install OpenCode as target user] ************************************************************************************************
+2026-06-11 11:50:50,493 p=51364 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:50,502 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:50:50,804 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:50,810 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:50:50,830 p=51364 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify.yml for hsrv1
+2026-06-11 11:50:50,837 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode installation] ***************************************************************************************************
+2026-06-11 11:50:51,728 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:50:51,734 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode installation succeeded] *****************************************************************************************
+2026-06-11 11:50:51,747 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode installation completed successfully"
+}
+2026-06-11 11:50:51,752 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version] ************************************************************************************************
+2026-06-11 11:50:51,765 p=51364 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "opencode_check.stdout_lines": [
+        "/home/sakura/.opencode/bin/opencode",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:50:51,769 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:50:51,780 p=51364 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:51,785 p=51364 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:50:51,796 p=51364 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:50:51,802 p=51364 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:50:51,802 p=51364 u=onizuka n=ansible INFO| hsrv1                      : ok=14   changed=0    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2026-06-11 11:51:20,892 p=51734 u=onizuka n=ansible INFO| PLAY [Uninstall OpenCode] ************************************************************************************************************************
+2026-06-11 11:51:20,920 p=51734 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:51:21,909 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:21,915 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:51:21,928 p=51734 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:51:21,933 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:51:21,948 p=51734 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:51:21,954 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:51:21,989 p=51734 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/uninstall.yml for hsrv1
+2026-06-11 11:51:21,994 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Determine target uninstall user] ************************************************************************************************
+2026-06-11 11:51:22,013 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:22,017 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:51:22,294 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:22,300 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Set target user paths] **********************************************************************************************************
+2026-06-11 11:51:22,316 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:22,324 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Check if user OpenCode installation exists] *************************************************************************************
+2026-06-11 11:51:22,612 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:22,617 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Check if system OpenCode symlink exists] ****************************************************************************************
+2026-06-11 11:51:22,830 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:22,835 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version before uninstall] *******************************************************************************
+2026-06-11 11:51:23,939 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:23,946 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Print installed OpenCode version] ***********************************************************************************************
+2026-06-11 11:51:23,964 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "msg": [
+        "Removing OpenCode installation",
+        "1.17.3"
+    ]
+}
+2026-06-11 11:51:23,969 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Remove user OpenCode installation directory] ************************************************************************************
+2026-06-11 11:51:24,292 p=51734 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:51:24,297 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Remove local user OpenCode binary] **********************************************************************************************
+2026-06-11 11:51:24,536 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:24,542 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode cache directory] ************************************************************************************************
+2026-06-11 11:51:24,772 p=51734 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:51:24,778 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode config directory] ***********************************************************************************************
+2026-06-11 11:51:25,095 p=51734 u=onizuka n=ansible INFO| changed: [hsrv1]
+2026-06-11 11:51:25,105 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy system-wide OpenCode symlink] *************************************************************************************
+2026-06-11 11:51:25,420 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:25,427 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root OpenCode installation] ***************************************************************************************
+2026-06-11 11:51:25,683 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:25,688 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:51:25,929 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/tmp/opencode-install.sh)
+2026-06-11 11:51:26,161 p=51734 u=onizuka n=ansible INFO| changed: [hsrv1] => (item=/tmp/opencode)
+2026-06-11 11:51:26,168 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:51:26,183 p=51734 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:51:26,189 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode removal] ********************************************************************************************************
+2026-06-11 11:51:26,410 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:26,416 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode removal succeeded] **********************************************************************************************
+2026-06-11 11:51:26,431 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode uninstall completed successfully"
+}
+2026-06-11 11:51:26,437 p=51734 u=onizuka n=ansible INFO| TASK [opencode : Show uninstall verification result] *********************************************************************************************
+2026-06-11 11:51:26,452 p=51734 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "uninstall_verify.stdout_lines": [
+        "OpenCode removed"
+    ]
+}
+2026-06-11 11:51:26,457 p=51734 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:51:26,458 p=51734 u=onizuka n=ansible INFO| hsrv1                      : ok=20   changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-06-11 11:51:34,204 p=51967 u=onizuka n=ansible INFO| PLAY [Uninstall OpenCode] ************************************************************************************************************************
+2026-06-11 11:51:34,232 p=51967 u=onizuka n=ansible INFO| TASK [Gathering Facts] ***************************************************************************************************************************
+2026-06-11 11:51:35,189 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:35,193 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install tasks] *************************************************************************************************
+2026-06-11 11:51:35,208 p=51967 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:51:35,214 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode install verification] ******************************************************************************************
+2026-06-11 11:51:35,232 p=51967 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:51:35,239 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall tasks] ***********************************************************************************************
+2026-06-11 11:51:35,274 p=51967 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/uninstall.yml for hsrv1
+2026-06-11 11:51:35,278 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Determine target uninstall user] ************************************************************************************************
+2026-06-11 11:51:35,296 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:35,300 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Get target user account information] ********************************************************************************************
+2026-06-11 11:51:35,573 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:35,579 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Set target user paths] **********************************************************************************************************
+2026-06-11 11:51:35,595 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:35,601 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Check if user OpenCode installation exists] *************************************************************************************
+2026-06-11 11:51:35,875 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:35,880 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Check if system OpenCode symlink exists] ****************************************************************************************
+2026-06-11 11:51:36,088 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:36,094 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Show installed OpenCode version before uninstall] *******************************************************************************
+2026-06-11 11:51:36,103 p=51967 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:51:36,108 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Print installed OpenCode version] ***********************************************************************************************
+2026-06-11 11:51:36,118 p=51967 u=onizuka n=ansible INFO| skipping: [hsrv1]
+2026-06-11 11:51:36,122 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Remove user OpenCode installation directory] ************************************************************************************
+2026-06-11 11:51:36,412 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:36,418 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Remove local user OpenCode binary] **********************************************************************************************
+2026-06-11 11:51:36,643 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:36,650 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode cache directory] ************************************************************************************************
+2026-06-11 11:51:36,875 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:36,881 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Remove OpenCode config directory] ***********************************************************************************************
+2026-06-11 11:51:37,124 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:37,130 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy system-wide OpenCode symlink] *************************************************************************************
+2026-06-11 11:51:37,353 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:37,359 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Remove legacy root OpenCode installation] ***************************************************************************************
+2026-06-11 11:51:37,594 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:37,602 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Remove temporary OpenCode installer] ********************************************************************************************
+2026-06-11 11:51:37,836 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/tmp/opencode-install.sh)
+2026-06-11 11:51:38,061 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1] => (item=/tmp/opencode)
+2026-06-11 11:51:38,067 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Include OpenCode uninstall verification] ****************************************************************************************
+2026-06-11 11:51:38,082 p=51967 u=onizuka n=ansible INFO| included: /home/onizuka/all_my_Info/GitHub/Portfolio/Ansible/roles/opencode/tasks/verify_uninstall.yml for hsrv1
+2026-06-11 11:51:38,092 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Verify OpenCode removal] ********************************************************************************************************
+2026-06-11 11:51:38,374 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1]
+2026-06-11 11:51:38,380 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Assert OpenCode removal succeeded] **********************************************************************************************
+2026-06-11 11:51:38,391 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "changed": false,
+    "msg": "OpenCode uninstall completed successfully"
+}
+2026-06-11 11:51:38,396 p=51967 u=onizuka n=ansible INFO| TASK [opencode : Show uninstall verification result] *********************************************************************************************
+2026-06-11 11:51:38,412 p=51967 u=onizuka n=ansible INFO| ok: [hsrv1] => {
+    "uninstall_verify.stdout_lines": [
+        "OpenCode removed"
+    ]
+}
+2026-06-11 11:51:38,419 p=51967 u=onizuka n=ansible INFO| PLAY RECAP ***************************************************************************************************************************************
+2026-06-11 11:51:38,420 p=51967 u=onizuka n=ansible INFO| hsrv1                      : ok=18   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   

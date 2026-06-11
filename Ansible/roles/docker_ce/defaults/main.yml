@@ -82,7 +82,7 @@ docker_validate_certs: true
 
 docker_manage_daemon_json: true
 
-docker_remove_data: false
+docker_remove_data: false # true
 
 docker_remove_repository: true
 

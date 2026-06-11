@@ -1,7 +1,7 @@
 ---
 - name: Bootstrap SSH keys
   hosts: all
-  # become: false
+  become: false
   gather_facts: false
 
   roles:
