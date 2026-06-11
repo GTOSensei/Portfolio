@@ -67,3 +67,4 @@
       - "Docker service enabled        : {{ docker_service_enabled_check.stdout | default('not-found') }}"
       - "Docker Compose plugin removed : {{ docker_compose_plugin_checks.results | map(attribute='stat.exists') | select('equalto', true) | list | length == 0 }}"
       - "Docker Buildx plugin removed  : {{ docker_buildx_plugin_checks.results | map(attribute='stat.exists') | select('equalto', true) | list | length == 0 }}"
+      - "Docker runtime data removed   : {{ docker_remove_data }}"
