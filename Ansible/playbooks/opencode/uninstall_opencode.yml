@@ -1,6 +1,8 @@
 ---
 - name: Uninstall OpenCode
-  hosts: all
+  hosts:
+    - docker
+    - opencode
   become: false
   gather_facts: true
 
@@ -8,4 +10,4 @@
     opencode_state: absent
 
   roles:
-    - role: opencode
+    - opencode

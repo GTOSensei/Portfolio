@@ -1,2 +1,2 @@
 ---
-ssh_keys_user: sakura
+ssh_keys_user: "{{ ansible_user }}"

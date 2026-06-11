@@ -71,7 +71,7 @@ docker_binaries:
 docker_service_name: docker
 
 docker_manage_users: true
-docker_users:
+docker_users: 
   - "{{ ansible_user }}"
 
 docker_enable_service: true

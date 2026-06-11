@@ -1,6 +1,8 @@
 ---
 - name: Uninstall Docker
-  hosts: all
+  hosts:
+    - docker
+    - opencode
   become: true
   gather_facts: true
 
@@ -8,4 +10,4 @@
     docker_state: absent
 
   roles:
-    - role: docker_ce
+    - docker_ce

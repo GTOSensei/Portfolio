@@ -17,7 +17,9 @@
 
 # CREATE_SSH_KEYS=
 
-BOOTSTRAP_INVENTORY=inventories/bootstrap/hosts
+BOOTSTRAP_INVENTORY_STAGING=inventories/bootstrap_staging/hosts
+BOOTSTRAP_INVENTORY_PRODUCTION=inventories/bootstrap_production/hosts
+
 STAGING_INVENTORY=inventories/staging/hosts
 PRODUCTION_INVENTORY=inventories/production/hosts
 
@@ -33,10 +35,10 @@ UNINSTALL_DOCKER_PLAYBOOK=playbooks/docker/uninstall_docker.yml
 # 	ansible-playbook -i inventories/loclhost/hosts $(BOOTSTRAP_SSH_KEYS)
 
 install-ssh-keys-staging:
-	ansible-playbook -i $(BOOTSTRAP_INVENTORY) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
+	ansible-playbook -i $(BOOTSTRAP_INVENTORY_STAGING) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
 
 install-ssh-keys-prod:
-	ansible-playbook -i $(PRODUCTION_INVENTORY) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
+	ansible-playbook -i $(PRODUCTION_INVENTORY_PRODUCTION) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
 
 # install-opencode-local:
 
