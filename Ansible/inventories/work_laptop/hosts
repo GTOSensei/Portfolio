@@ -1,0 +1,14 @@
+all:
+  children:
+
+    docker:
+      hosts:
+        work:
+          ansible_host: work-ansible
+          ansible_user: sakura
+
+    opencode:
+      hosts:
+        work:
+          ansible_host: work-ansible
+          ansible_user: sakura
