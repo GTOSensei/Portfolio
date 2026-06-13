@@ -127,7 +127,7 @@ drwx------ ansible ansible
 
 # Step 4. Install SSH Public Key 
 
-(manual or auto - but only after bootstrap: install-ssh-keys-work)
+(manual or auto - but only after Ansible bootstrap: install-ssh-keys-work)
 
 From home laptop:
 
