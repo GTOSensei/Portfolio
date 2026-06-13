@@ -6,12 +6,13 @@
 	install-docker-local uninstall-docker-local \
 
 	install-ssh-keys-work \
-	
-	install-ssh-keys-staging \
-	install-opencode-staging uninstall-opencode-staging \
-	install-docker-staging uninstall-docker-staging \
+	install-opencode-work uninstall-opencode-work \
 
-	install-ssh-keys-prod \
+	install-ssh-keys-homevm \
+	install-opencode-homevm uninstall-opencode-homevm \
+	install-docker-homevm uninstall-docker-homevm
+	
+#	install-ssh-keys-prod \
 	install-opencode-prod uninstall-opencode-prod \
 	install-docker-prod uninstall-docker-prod
 
@@ -20,11 +21,12 @@
 LOCALHOST_INVENTORY=inventories/localhost/hosts
 
 BOOTSTRAP_INVENTORY_WORK=inventories/bootstrap_work/hosts
-BOOTSTRAP_INVENTORY_STAGING=inventories/bootstrap_staging/hosts
-BOOTSTRAP_INVENTORY_PRODUCTION=inventories/bootstrap_production/hosts
+BOOTSTRAP_INVENTORY_STAGING=inventories/bootstrap_homevm/hosts
+#BOOTSTRAP_INVENTORY_PRODUCTION=inventories/bootstrap_production/hosts
 
-STAGING_INVENTORY=inventories/staging/hosts
-PRODUCTION_INVENTORY=inventories/production/hosts
+WORK_INVENTORY=inventories/work_laptop/hosts
+STAGING_INVENTORY=inventories/homevm/hosts
+#PRODUCTION_INVENTORY=inventories/production/hosts
 
 BOOTSTRAP_SSH_KEYS_PLAYBOOK=playbooks/bootstrap/bootstrap_ssh_keys.yml
 
@@ -55,37 +57,43 @@ uninstall-docker-local:
 install-ssh-keys-work:
 	ansible-playbook -i $(BOOTSTRAP_INVENTORY_WORK) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
 
+install-opencode-work:
+	ansible-playbook -i $(WORK_INVENTORY) $(INSTALL_OPENCODE_PLAYBOOK)
+
+uninstall-opencode-work:
+	ansible-playbook -i $(WORK_INVENTORY) $(UNINSTALL_OPENCODE_PLAYBOOK)
+
 
 # STAGING
-install-ssh-keys-staging:
+install-ssh-keys-homevm:
 	ansible-playbook -i $(BOOTSTRAP_INVENTORY_STAGING) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
 
-install-opencode-staging:
+install-opencode-homevm:
 	ansible-playbook -i $(STAGING_INVENTORY) $(INSTALL_OPENCODE_PLAYBOOK)
 
-uninstall-opencode-staging:
+uninstall-opencode-homevm:
 	ansible-playbook -i $(STAGING_INVENTORY) $(UNINSTALL_OPENCODE_PLAYBOOK)
 
-install-docker-staging:
+install-docker-homevm:
 	ansible-playbook -i $(STAGING_INVENTORY) $(INSTALL_DOCKER_PLAYBOOK)
 
-uninstall-docker-staging:
+uninstall-docker-homevm:
 	ansible-playbook -i $(STAGING_INVENTORY) $(UNINSTALL_DOCKER_PLAYBOOK)
 
 
 # PRODUCTION
-install-ssh-keys-prod:
-	ansible-playbook -i $(PRODUCTION_INVENTORY_PRODUCTION) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
+# install-ssh-keys-prod:
+# 	ansible-playbook -i $(PRODUCTION_INVENTORY_PRODUCTION) $(BOOTSTRAP_SSH_KEYS_PLAYBOOK)
 
-install-opencode-prod:
-	ansible-playbook -i $(PRODUCTION_INVENTORY) $(INSTALL_OPENCODE_PLAYBOOK)
+# install-opencode-prod:
+# 	ansible-playbook -i $(PRODUCTION_INVENTORY) $(INSTALL_OPENCODE_PLAYBOOK)
 
-uninstall-opencode-prod:
-	ansible-playbook -i $(PRODUCTION_INVENTORY) $(UNINSTALL_OPENCODE_PLAYBOOK)
+# uninstall-opencode-prod:
+# 	ansible-playbook -i $(PRODUCTION_INVENTORY) $(UNINSTALL_OPENCODE_PLAYBOOK)
 
-install-docker-prod:
-	ansible-playbook -i $(PRODUCTION_INVENTORY) $(INSTALL_DOCKER_PLAYBOOK)
+# install-docker-prod:
+# 	ansible-playbook -i $(PRODUCTION_INVENTORY) $(INSTALL_DOCKER_PLAYBOOK)
 
-uninstall-docker-prod:
-	ansible-playbook -i $(PRODUCTION_INVENTORY) $(UNINSTALL_DOCKER_PLAYBOOK)
+# uninstall-docker-prod:
+# 	ansible-playbook -i $(PRODUCTION_INVENTORY) $(UNINSTALL_DOCKER_PLAYBOOK)
 

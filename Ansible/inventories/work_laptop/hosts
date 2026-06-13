@@ -5,10 +5,10 @@ all:
       hosts:
         work:
           ansible_host: work-ansible
-          ansible_user: sakura
+          ansible_user: ansible
 
     opencode:
       hosts:
         work:
           ansible_host: work-ansible
-          ansible_user: sakura
+          ansible_user: ansible

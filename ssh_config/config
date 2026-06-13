@@ -15,7 +15,7 @@ Host work
 #Home-Ansible to Work Laptop
 Host work-ansible
     HostName work.local
-    User sakura
+    User ansible
     IdentityFile ~/.ssh/work_ansible
     IdentitiesOnly yes
 

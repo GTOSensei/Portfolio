@@ -4,5 +4,5 @@ all:
     bootstrap_ssh:
       hosts:
         work:
-          ansible_host: work-ansible
+          ansible_host: work
           ansible_user: sakura

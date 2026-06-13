@@ -1,0 +1,26 @@
+---
+- name: Determine target OpenCode user
+  ansible.builtin.set_fact:
+    opencode_user: >-
+      {{
+        opencode_target_user
+        if opencode_target_user | length > 0
+        else (
+          lookup('env', 'SUDO_USER')
+          | default(ansible_facts['user_id'], true)
+        )
+      }}
+
+- name: Get OpenCode user account information
+  ansible.builtin.getent:
+    database: passwd
+    key: "{{ opencode_user }}"
+
+- name: Set OpenCode user paths
+  ansible.builtin.set_fact:
+    opencode_home: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}"
+    opencode_binary: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.opencode/bin/opencode"
+    opencode_user_dir: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.opencode"
+    opencode_local_bin: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.local/bin/opencode"
+    opencode_cache_dir: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.cache/opencode"
+    opencode_config_dir: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.config/opencode"
