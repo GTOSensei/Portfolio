@@ -8,3 +8,5 @@ root_opencode_dir: "/root/.opencode"
 opencode_installer_path: "/tmp/opencode-install.sh"
 
 opencode_temp_dir: "/tmp/opencode"
+
+opencode_target_user: ""

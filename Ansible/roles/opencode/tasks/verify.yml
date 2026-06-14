@@ -1,12 +1,18 @@
+---
+- name: Include OpenCode user context
+  ansible.builtin.include_tasks: set_user_context.yml
+
 - name: Verify OpenCode installation
   become: true
-  become_user: "{{ install_user }}"
+  become_user: "{{ opencode_user }}"
   ansible.builtin.shell:
     cmd: |
       export PATH="$HOME/.opencode/bin:$HOME/.local/bin:$PATH"
-      command -v opencode
+      test -x "{{ opencode_binary }}"
       opencode --version
     executable: /bin/bash
+  environment:
+    HOME: "{{ opencode_home }}"
   register: opencode_check
   changed_when: false
 
@@ -17,6 +23,10 @@
     fail_msg: "OpenCode installation failed"
     success_msg: "OpenCode installation completed successfully"
 
-- name: Show installed OpenCode version
+- name: Show OpenCode installation verification result
   ansible.builtin.debug:
-    var: opencode_check.stdout_lines
+    msg:
+      - "OpenCode binary exists : {{ opencode_check.rc == 0 }}"
+      - "Binary path            : {{ opencode_binary }}"
+      - "Version                : {{ opencode_check.stdout }}"
+      - "OpenCode user          : {{ opencode_user }}"

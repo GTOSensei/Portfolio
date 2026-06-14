@@ -1,42 +1,55 @@
+---
+- name: Include OpenCode user context
+  ansible.builtin.include_tasks: set_user_context.yml
+
 - name: Determine target uninstall user
   ansible.builtin.set_fact:
-    install_user: >-
+    opencode_user: >-
       {{
-        lookup('env', 'SUDO_USER')
-        | default(ansible_facts['user_id'], true)
+        opencode_target_user
+        if opencode_target_user | length > 0
+        else (
+          lookup('env', 'SUDO_USER')
+          | default(ansible_facts['user_id'], true)
+        )
       }}
 
 - name: Get target user account information
   ansible.builtin.getent:
     database: passwd
-    key: "{{ install_user }}"
+    key: "{{ opencode_user }}"
 
 - name: Set target user paths
   ansible.builtin.set_fact:
-    install_home: "{{ ansible_facts['getent_passwd'][install_user][4] }}"
-    opencode_user_dir: "{{ ansible_facts['getent_passwd'][install_user][4] }}/.opencode"
-    opencode_local_bin: "{{ ansible_facts['getent_passwd'][install_user][4] }}/.local/bin/opencode"
-    opencode_cache_dir: "{{ ansible_facts['getent_passwd'][install_user][4] }}/.cache/opencode"
-    opencode_config_dir: "{{ ansible_facts['getent_passwd'][install_user][4] }}/.config/opencode"
+    opencode_home: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}"
+    opencode_user_dir: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.opencode"
+    opencode_local_bin: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.local/bin/opencode"
+    opencode_cache_dir: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.cache/opencode"
+    opencode_config_dir: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.config/opencode"
 
 - name: Check if user OpenCode installation exists
+  become: true
+  become_user: "{{ opencode_user }}"
   ansible.builtin.stat:
     path: "{{ opencode_user_dir }}"
   register: user_opencode
 
 - name: Check if system OpenCode symlink exists
+  become: true
   ansible.builtin.stat:
     path: "{{ system_opencode_symlink }}"
   register: system_opencode
 
 - name: Show installed OpenCode version before uninstall
   become: true
-  become_user: "{{ install_user }}"
+  become_user: "{{ opencode_user }}"
   ansible.builtin.shell:
     cmd: |
       export PATH="$HOME/.opencode/bin:$HOME/.local/bin:$PATH"
       opencode --version
     executable: /bin/bash
+  environment:
+    HOME: "{{ opencode_home }}"
   register: installed_version
   changed_when: false
   failed_when: false

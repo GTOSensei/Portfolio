@@ -1,23 +1,24 @@
-- name: Verify OpenCode removal
-  ansible.builtin.shell:
-    cmd: |
-      if command -v opencode >/dev/null 2>&1; then
-        echo "OpenCode still exists"
-        exit 1
-      else
-        echo "OpenCode removed"
-      fi
-    executable: /bin/bash
-  register: uninstall_verify
-  changed_when: false
+---
+- name: Include OpenCode user context
+  ansible.builtin.include_tasks: set_user_context.yml
+
+- name: Verify OpenCode binary removal
+  become: true
+  become_user: "{{ opencode_user }}"
+  ansible.builtin.stat:
+    path: "{{ opencode_binary }}"
+  register: opencode_binary_check
 
 - name: Assert OpenCode removal succeeded
   ansible.builtin.assert:
     that:
-      - uninstall_verify.rc == 0
+      - not opencode_binary_check.stat.exists
     fail_msg: "OpenCode uninstall verification failed"
     success_msg: "OpenCode uninstall completed successfully"
 
 - name: Show uninstall verification result
   ansible.builtin.debug:
-    var: uninstall_verify.stdout_lines
+    msg:
+      - "OpenCode binary removed : {{ not opencode_binary_check.stat.exists }}"
+      - "Binary path            : {{ opencode_binary }}"
+      - "OpenCode user          : {{ opencode_user }}"

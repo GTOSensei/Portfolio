@@ -1,20 +1,6 @@
-- name: Determine target install user
-  ansible.builtin.set_fact:
-    install_user: >-
-      {{
-        lookup('env', 'SUDO_USER')
-        | default(ansible_facts['user_id'], true)
-      }}
-
-- name: Get target user account information
-  ansible.builtin.getent:
-    database: passwd
-    key: "{{ install_user }}"
-
-- name: Set target user home directory
-  ansible.builtin.set_fact:
-    install_home: "{{ ansible_facts['getent_passwd'][install_user][4] }}"
-    opencode_binary: "{{ ansible_facts['getent_passwd'][install_user][4] }}/.opencode/bin/opencode"
+---
+- name: Include OpenCode user context
+  ansible.builtin.include_tasks: set_user_context.yml
 
 - name: Ensure curl is installed
   become: true
@@ -23,18 +9,22 @@
     state: present
 
 - name: Check if OpenCode is already installed
+  become: true
+  become_user: "{{ opencode_user }}"
   ansible.builtin.stat:
     path: "{{ opencode_binary }}"
   register: opencode_installed
 
 - name: Show installed OpenCode version
   become: true
-  become_user: "{{ install_user }}"
+  become_user: "{{ opencode_user }}"
   ansible.builtin.shell:
     cmd: |
       export PATH="$HOME/.opencode/bin:$HOME/.local/bin:$PATH"
       opencode --version
     executable: /bin/bash
+  environment:
+    HOME: "{{ opencode_home }}"
   register: existing_opencode_version
   changed_when: false
   when: opencode_installed.stat.exists
@@ -69,13 +59,13 @@
 
 - name: Install OpenCode as target user
   become: true
-  become_user: "{{ install_user }}"
+  become_user: "{{ opencode_user }}"
   ansible.builtin.shell:
     cmd: "{{ opencode_installer_path }}"
     executable: /bin/bash
   environment:
-    HOME: "{{ install_home }}"
-    USER: "{{ install_user }}"
+    HOME: "{{ opencode_home }}"
+    USER: "{{ opencode_user }}"
     CI: "true"
   when: not opencode_installed.stat.exists
 
