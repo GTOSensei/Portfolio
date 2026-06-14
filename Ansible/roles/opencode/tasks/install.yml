@@ -1,32 +1,3 @@
-# - name: Determine target install user
-#   ansible.builtin.set_fact:
-#     install_user: >-
-#       {{
-#         lookup('env', 'SUDO_USER')
-#         | default(ansible_facts['user_id'], true)
-#       }}
-
-# - name: Determine target OpenCode user
-#   ansible.builtin.set_fact:
-#     opencode_user: >-
-#       {{
-#         opencode_target_user
-#         if opencode_target_user | length > 0
-#         else (
-#           lookup('env', 'SUDO_USER')
-#           | default(ansible_facts['user_id'], true)
-#         )
-#       }}
-
-# - name: Get target user account information
-#   ansible.builtin.getent:
-#     database: passwd
-#     key: "{{ opencode_user }}"
-
-# - name: Set target user home directory
-#   ansible.builtin.set_fact:
-#     opencode_home: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}"
-#     opencode_binary: "{{ ansible_facts['getent_passwd'][opencode_user][4] }}/.opencode/bin/opencode"
 ---
 - name: Include OpenCode user context
   ansible.builtin.include_tasks: set_user_context.yml
@@ -36,11 +7,6 @@
   ansible.builtin.package:
     name: curl
     state: present
-
-# - name: Check if OpenCode is already installed
-#   ansible.builtin.stat:
-#     path: "{{ opencode_binary }}"
-#   register: opencode_installed
 
 - name: Check if OpenCode is already installed
   become: true
