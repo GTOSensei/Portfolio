@@ -2,3 +2,4 @@
 ssh_keys_user: "{{ ansible_user }}"
 
 opencode_target_user: sakura
+docker_target_user: sakura

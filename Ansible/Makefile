@@ -7,6 +7,7 @@
 
 	install-ssh-keys-work \
 	install-opencode-work uninstall-opencode-work \
+	install-docker-work uninstall-docker-work \
 
 	install-ssh-keys-homevm \
 	install-opencode-homevm uninstall-opencode-homevm \
@@ -68,6 +69,12 @@ install-opencode-work:
 
 uninstall-opencode-work:
 	ansible-playbook -i $(WORK_INVENTORY) $(UNINSTALL_OPENCODE_PLAYBOOK)
+
+install-docker-work:
+	ansible-playbook -i $(WORK_INVENTORY) $(INSTALL_DOCKER_PLAYBOOK)
+
+uninstall-docker-work:
+	ansible-playbook -i $(WORK_INVENTORY) $(UNINSTALL_DOCKER_PLAYBOOK)
 
 
 # HOMEVM: Vagrant
